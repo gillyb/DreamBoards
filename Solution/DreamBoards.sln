@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamBoards.Domain", "DreamBoards.Domain\DreamBoards.Domain.csproj", "{B8FC9AAB-4B91-48B6-9E18-F2DF9031A55A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamBoards.Web", "DreamBoards.Web\DreamBoards.Web.csproj", "{39E01357-7FCE-412E-97B9-11F7B9F68915}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamBoards.Tests.Integration", "DreamBoards.Tests.Integration\DreamBoards.Tests.Integration.csproj", "{E75C9803-A20E-437C-9641-159C47E0287B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamBoards.Tests.Unit", "DreamBoards.Tests.Unit\DreamBoards.Tests.Unit.csproj", "{71641FA9-BFD9-4CB8-914D-7A13AF14009E}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8FC9AAB-4B91-48B6-9E18-F2DF9031A55A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8FC9AAB-4B91-48B6-9E18-F2DF9031A55A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8FC9AAB-4B91-48B6-9E18-F2DF9031A55A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8FC9AAB-4B91-48B6-9E18-F2DF9031A55A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39E01357-7FCE-412E-97B9-11F7B9F68915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39E01357-7FCE-412E-97B9-11F7B9F68915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39E01357-7FCE-412E-97B9-11F7B9F68915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39E01357-7FCE-412E-97B9-11F7B9F68915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E75C9803-A20E-437C-9641-159C47E0287B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E75C9803-A20E-437C-9641-159C47E0287B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E75C9803-A20E-437C-9641-159C47E0287B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E75C9803-A20E-437C-9641-159C47E0287B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71641FA9-BFD9-4CB8-914D-7A13AF14009E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71641FA9-BFD9-4CB8-914D-7A13AF14009E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71641FA9-BFD9-4CB8-914D-7A13AF14009E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71641FA9-BFD9-4CB8-914D-7A13AF14009E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

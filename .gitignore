@@ -1,0 +1,16 @@
+
+#reharper crap
+DreamBoards/_[Rr]e[Ss]harper*
+/**/_ReSharper.*
+*.[Rr]e[Ss]harper.user
+
+#VS crap
+*.suo
+*.sln.cache
+*.csproj.user
+DreamBoards/**/bin/
+DreamBoards/**/obj/
+out/
+bin/
+obj/
+*.DotSettings.user

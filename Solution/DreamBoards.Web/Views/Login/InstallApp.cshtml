@@ -1,0 +1,17 @@
+﻿@model MiamiApp.Web.ViewModels.InstallAppViewModel
+
+@{
+	ViewBag.Title = "InstallApp";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>Here we install the application into the user account,install the app link, and add the application to tag #220057 (Airflow Collectibles)<br/>
+</p>
+<p>
+	A new app wall was created: <a href="@Model.AppWallUrl" target="_top">@Model.AppWallUrl</a>
+</p>
+<p>Now you can:</p>
+<ul>
+	<li>@Html.ActionLink("Go to canvas page", "RegularCanvas", "Home")</li>
+	<li>@Html.ActionLink("Create a new App Wall","NewAppWallForm","AppWall")</li>
+</ul>

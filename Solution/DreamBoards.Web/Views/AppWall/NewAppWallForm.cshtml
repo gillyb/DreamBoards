@@ -1,0 +1,18 @@
+﻿@model dynamic
+
+@{
+	ViewBag.Title = "Create a new app wall";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form action="/create-app-wall">
+	<table>
+		<tr><td>Name:</td><td><input type="text" name="name" value="My Canvas"/></td></tr>
+		<tr><td>Description</td><td><input type="text" name="description" value="my description"/></td></tr>
+		<tr><td>Header Content Path</td><td><input type="text" name="headerContentPath" value="/appwall/header"/>  Height: <input type="text" name="headerContentHeight" value="80"/></td></tr>
+		<tr><td>Right Content Path</td><td><input type="text" name="rightContentPath" value="/appwall/right"/></td></tr>
+	</table>
+	<input type="submit"/>
+</form>

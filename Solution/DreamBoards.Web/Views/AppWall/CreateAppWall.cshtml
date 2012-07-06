@@ -1,0 +1,10 @@
+﻿@model MiamiApp.Web.ViewModels.InstallAppViewModel
+
+@{
+	ViewBag.Title = "App Wall Created";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>App wall created: <a href="@Model.AppWallUrl" target="_top">@Model.AppWallUrl</a></p>
+<p>@Html.ActionLink("Create another app wall", "NewAppWallForm", "AppWall")</p>
+

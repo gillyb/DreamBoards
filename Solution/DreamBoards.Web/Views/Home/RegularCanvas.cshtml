@@ -1,0 +1,45 @@
+﻿@model MiamiApp.Web.ViewModels.HomeViewModel
+		   
+@{
+    ViewBag.Title = "RegularCanvas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Regular Canvas</h2>
+<p><a href="@Model.RegularCanvasURL" target="_top">Regular Canvas</a> | <a href="@Model.FullCanvasURL" target="_top">Full Canvas</a> 
+| @Html.ActionLink("Create a new app wall", "NewAppWallForm", "AppWall")</p>
+<form id="PublishStory" >
+	<fieldset>
+		<legend>Post a story</legend>
+		
+		<div>@Html.TextBox("PostTitle")</div>
+		
+		<div>@Html.TextArea("PostContent")	</div>
+		
+		@*		<input type="submit" value="post"/>*@
+		
+		<input id="PublishStoryButton" type="button" value="Post"></input> <span id="resultPlaceHolder"></span>
+	</fieldset>
+</form>
+<span id="errorPlaceHolder"></span>
+<script>
+	$(function () {
+		$("#PublishStoryButton").click(function () {
+			//			$.ajax({ type: 'POST', url: "/test", success: function () { alert("test"); },timeout: 3000 });
+
+			$("#resultPlaceHolder").html("<img src=\"/static/img/ajax-loader.gif\">");
+			$.ajax({
+				type: 'POST',
+				url: "/publish-story",
+				data: $("#PublishStory").serialize(),
+				success: function () {
+					$("#resultPlaceHolder").html('Story Published. <a href="@Model.PlatformHomePage" target="_top">View</a>');
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					$("#resultPlaceHolder").html("Publishing failed: " + errorThrown + ". Verify that your app has permissions to publish.");
+				},
+				dataType: 'json'
+			});
+
+		});
+	});
+</script>

@@ -41,11 +41,8 @@ namespace DreamBoards.Web
 			var controllerFactory = new WindsorControllerFactory(_container);
 			ControllerBuilder.Current.SetControllerFactory(controllerFactory);
 
-
 			// Events
 			_container.AutoWireEvents(domainAssemblies);
-
-
 		}
 
 	}

@@ -10,7 +10,7 @@ using DreamBoards.Domain.Settings;
 using DreamBoards.Web.Filters;
 using PlatformClient.Platform;
 
-namespace MiamiApp.Web
+namespace DreamBoards.Web
 {
 	public class Global : System.Web.HttpApplication
 	{

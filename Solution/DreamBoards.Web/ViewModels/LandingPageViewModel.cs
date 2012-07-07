@@ -2,7 +2,7 @@
 using DreamBoards.Domain.Tags;
 using DreamBoards.Domain.User;
 
-namespace MiamiApp.Web.ViewModels
+namespace DreamBoards.Web.ViewModels
 {
 	public class LandingPageViewModel
 	{

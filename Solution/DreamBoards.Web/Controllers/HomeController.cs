@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using CommonGround.MvcInvocation;
 using DreamBoards.Domain.Settings;
-using MiamiApp.Web.ViewModels;
+using DreamBoards.Web.ViewModels;
 using PlatformClient.Platform;
 
 namespace DreamBoards.Web.Controllers

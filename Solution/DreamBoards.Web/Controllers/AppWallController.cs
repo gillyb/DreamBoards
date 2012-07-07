@@ -2,7 +2,7 @@
 using CommonGround.MvcInvocation;
 using DreamBoards.Domain.AppWalls;
 using DreamBoards.Domain.Settings;
-using MiamiApp.Web.ViewModels;
+using DreamBoards.Web.ViewModels;
 
 namespace DreamBoards.Web.Controllers
 {

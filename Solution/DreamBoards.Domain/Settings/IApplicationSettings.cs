@@ -13,6 +13,6 @@ namespace DreamBoards.Domain.Settings
 
 		public long AppId { get { return 100; } }
 
-		public string CookieName { get { return "miamiapp"; } }
+		public string CookieName { get { return "dreamboards"; } }
 	}
 }

@@ -1,4 +1,4 @@
-namespace MiamiApp.Web.ViewModels
+namespace DreamBoards.Web.ViewModels
 {
 	public class InstallAppViewModel
 	{

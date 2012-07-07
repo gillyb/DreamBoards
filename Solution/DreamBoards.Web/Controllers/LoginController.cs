@@ -4,7 +4,7 @@ using CommonGround.MvcInvocation;
 using DreamBoards.Domain.AppWalls;
 using DreamBoards.Domain.PlatformApiServices;
 using DreamBoards.Domain.Settings;
-using MiamiApp.Web.ViewModels;
+using DreamBoards.Web.ViewModels;
 using PlatformClient.Platform;
 
 namespace DreamBoards.Web.Controllers

@@ -4,7 +4,7 @@ using CommonGround.MvcInvocation;
 using DreamBoards.Domain.PlatformApiServices;
 using DreamBoards.Domain.Tags;
 using DreamBoards.Domain.User;
-using MiamiApp.Web.ViewModels;
+using DreamBoards.Web.ViewModels;
 using PlatformClient.Platform;
 using ControllerBase = CommonGround.MvcInvocation.ControllerBase;
 

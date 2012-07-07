@@ -9,11 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamBoards.Tests.Integrati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamBoards.Tests.Unit", "DreamBoards.Tests.Unit\DreamBoards.Tests.Unit.csproj", "{71641FA9-BFD9-4CB8-914D-7A13AF14009E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamBoards.DataAccess", "DreamBoards.DataAccess\DreamBoards.DataAccess.csproj", "{377509C6-E52D-45F9-BD52-32103FCE0B2A}"
+EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -35,8 +33,16 @@ Global
 		{71641FA9-BFD9-4CB8-914D-7A13AF14009E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71641FA9-BFD9-4CB8-914D-7A13AF14009E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71641FA9-BFD9-4CB8-914D-7A13AF14009E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{377509C6-E52D-45F9-BD52-32103FCE0B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{377509C6-E52D-45F9-BD52-32103FCE0B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{377509C6-E52D-45F9-BD52-32103FCE0B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{377509C6-E52D-45F9-BD52-32103FCE0B2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

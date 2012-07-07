@@ -53,6 +53,9 @@
     <Reference Include="log4net">
       <HintPath>..\lib\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.3.3.1.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="PlatformClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\lib\PlatformClient.dll</HintPath>
     </Reference>
@@ -132,6 +135,10 @@
     <Content Include="Views\Landing\Landing.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DreamBoards.DataAccess\DreamBoards.DataAccess.csproj">
+      <Project>{377509C6-E52D-45F9-BD52-32103FCE0B2A}</Project>
+      <Name>DreamBoards.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DreamBoards.Domain\DreamBoards.Domain.csproj">
       <Project>{B8FC9AAB-4B91-48B6-9E18-F2DF9031A55A}</Project>
       <Name>DreamBoards.Domain</Name>

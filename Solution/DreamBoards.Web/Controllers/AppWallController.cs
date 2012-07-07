@@ -1,10 +1,10 @@
 ﻿using System.Web.Mvc;
 using CommonGround.MvcInvocation;
-using MiamiApp.Domain.AppWalls;
-using MiamiApp.Domain.Settings;
+using DreamBoards.Domain.AppWalls;
+using DreamBoards.Domain.Settings;
 using MiamiApp.Web.ViewModels;
 
-namespace MiamiApp.Web.Controllers
+namespace DreamBoards.Web.Controllers
 {
     public class AppWallController : Controller
     {

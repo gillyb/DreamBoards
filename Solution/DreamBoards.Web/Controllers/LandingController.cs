@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using CommonGround.MvcInvocation;
-using MiamiApp.Domain.PlatformApiServices;
-using MiamiApp.Domain.Tags;
-using MiamiApp.Domain.User;
+using DreamBoards.Domain.PlatformApiServices;
+using DreamBoards.Domain.Tags;
+using DreamBoards.Domain.User;
 using MiamiApp.Web.ViewModels;
 using PlatformClient.Platform;
 using ControllerBase = CommonGround.MvcInvocation.ControllerBase;
 
-namespace MiamiApp.Web.Controllers
+namespace DreamBoards.Web.Controllers
 {
 	public class LandingController : ControllerBase
     {

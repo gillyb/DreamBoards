@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using CommonGround.MvcInvocation;
-using MiamiApp.Domain.AppWalls;
-using MiamiApp.Domain.PlatformApiServices;
-using MiamiApp.Domain.Settings;
+using DreamBoards.Domain.AppWalls;
+using DreamBoards.Domain.PlatformApiServices;
+using DreamBoards.Domain.Settings;
 using MiamiApp.Web.ViewModels;
 using PlatformClient.Platform;
 
-namespace MiamiApp.Web.Controllers
+namespace DreamBoards.Web.Controllers
 {
 	public class LoginController : Controller
 	{

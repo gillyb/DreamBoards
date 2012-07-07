@@ -1,4 +1,4 @@
-﻿namespace MiamiApp.Domain.User
+﻿namespace DreamBoards.Domain.User
 {
 	public class User
 	{

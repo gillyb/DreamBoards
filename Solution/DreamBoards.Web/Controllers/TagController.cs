@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using CommonGround.MvcInvocation;
-using MiamiApp.Domain.Tags;
+using DreamBoards.Domain.Tags;
 using PlatformClient.Platform;
 using System.Linq;
 
-namespace MiamiApp.Web.Controllers
+namespace DreamBoards.Web.Controllers
 {
     public class TagController : Controller
     {

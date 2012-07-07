@@ -1,8 +1,8 @@
 ﻿using System;
-using MiamiApp.Domain.Settings;
+using DreamBoards.Domain.Settings;
 using PlatformClient.Platform;
 
-namespace MiamiApp.Domain.PlatformApiServices
+namespace DreamBoards.Domain.PlatformApiServices
 {
     public class PlatformConfiguration : IPlatformConfiguration
     {

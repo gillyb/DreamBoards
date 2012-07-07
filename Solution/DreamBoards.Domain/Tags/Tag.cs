@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MiamiApp.Domain.Tags
+namespace DreamBoards.Domain.Tags
 {
 	public class Tag
 	{

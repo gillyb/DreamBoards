@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using MiamiApp.Domain.Tags;
-using MiamiApp.Domain.User;
+using DreamBoards.Domain.Tags;
+using DreamBoards.Domain.User;
 
 namespace MiamiApp.Web.ViewModels
 {

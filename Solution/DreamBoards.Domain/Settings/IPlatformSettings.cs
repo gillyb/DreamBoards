@@ -1,6 +1,4 @@
-﻿using CommonGround.Settings;
-
-namespace MiamiApp.Domain.Settings
+﻿namespace DreamBoards.Domain.Settings
 {
     public interface IPlatformSettings
     {

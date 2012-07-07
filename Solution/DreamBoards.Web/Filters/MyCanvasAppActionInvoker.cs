@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using CommonGround.MvcInvocation;
 
-namespace MiamiApp.Web.Filters
+namespace DreamBoards.Web.Filters
 {
 	public class MyCanvasAppActionInvoker : ActionInvoker
 	{

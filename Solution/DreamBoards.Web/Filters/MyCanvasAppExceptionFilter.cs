@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using Castle.Core.Logging;
 
-namespace MiamiApp.Web.Filters
+namespace DreamBoards.Web.Filters
 {
 	public interface IMyCanvasAppExceptionFilter : IExceptionFilter
 	{

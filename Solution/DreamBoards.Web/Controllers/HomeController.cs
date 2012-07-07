@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using CommonGround.MvcInvocation;
-using MiamiApp.Domain.Settings;
+using DreamBoards.Domain.Settings;
 using MiamiApp.Web.ViewModels;
 using PlatformClient.Platform;
 
-namespace MiamiApp.Web.Controllers
+namespace DreamBoards.Web.Controllers
 {
     public class HomeController : Controller
     {

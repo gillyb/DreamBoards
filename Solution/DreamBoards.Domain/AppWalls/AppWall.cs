@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MiamiApp.Domain.AppWalls
+namespace DreamBoards.Domain.AppWalls
 {
 	public class AppWall
 	{

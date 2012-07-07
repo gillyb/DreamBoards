@@ -1,7 +1,7 @@
 ﻿using System;
-using MiamiApp.Domain.Settings;
+using DreamBoards.Domain.Settings;
 
-namespace MiamiApp.Domain.PlatformApiServices
+namespace DreamBoards.Domain.PlatformApiServices
 {
 	public interface IPlatformRoutes
 	{

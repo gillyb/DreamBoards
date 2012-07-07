@@ -1,11 +1,9 @@
 using System;
-using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
-using MiamiApp.Domain.Settings;
+using DreamBoards.Domain.Settings;
 using PlatformClient.Platform;
 
-namespace MiamiApp.Web.Filters
+namespace DreamBoards.Web.Filters
 {
 	public interface ITokenExtractorFilter : IAuthorizationFilter
 	{

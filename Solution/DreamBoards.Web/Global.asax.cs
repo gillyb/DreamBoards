@@ -6,9 +6,8 @@ using System.Web.Routing;
 using CommonGround;
 using CommonGround.Logging;
 using CommonGround.MvcInvocation;
-using MiamiApp.Domain.AppWalls;
-using MiamiApp.Domain.Settings;
-using MiamiApp.Web.Filters;
+using DreamBoards.Domain.Settings;
+using DreamBoards.Web.Filters;
 using PlatformClient.Platform;
 
 namespace MiamiApp.Web

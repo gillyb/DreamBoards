@@ -1,0 +1,50 @@
+﻿@using System.Configuration
+@model object
+		   
+@{
+    ViewBag.Title = "RegularCanvas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="canvas float">
+
+</div>
+
+<div class="toolbox float">
+	<div class="thumbnail-container">
+		<img class="thumbnail" src="../../static/img/hats/01.jpg">
+	</div>
+	<div class="thumbnail-container">
+		<img class="thumbnail" src="../../static/img/hats/02.jpg">
+	</div>
+	<div class="thumbnail-container">
+		<img class="thumbnail" src="../../static/img/hats/03.jpg">
+	</div>
+	<img class="thumbnail float" src="../../static/img/hats/04.jpg">
+	<img class="thumbnail float" src="../../static/img/hats/05.jpg">
+	<img class="thumbnail float" src="../../static/img/hats/06.jpg">
+	<img class="thumbnail float" src="../../static/img/hats/07.jpg">
+	<img class="thumbnail float" src="../../static/img/hats/08.jpg">
+	<img class="thumbnail float" src="../../static/img/hats/09.jpg">
+	<img class="thumbnail float" src="../../static/img/hats/10.jpg">
+</div>
+
+<div class="breaker"></div>
+
+<script language="javascript" type="text/javascript">
+	$(function() {
+		$('.canvas').droppable({ tolerance: 'fit' });
+		$('.toolbox .thumbnail-container .thumbnail').resizable();
+		$('.toolbox .thumbnail-container').draggable({
+			revert: 'invalid',
+			stop: function(event, ui) {
+				var itemPosition = $(this).position();
+				$(this).appendTo('.canvas');
+				$(this).css({
+					position: 'absolute',
+					top: itemPosition.top,
+					left: itemPosition.left
+				});
+			}
+		});
+	});
+</script>

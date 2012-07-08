@@ -106,7 +106,9 @@
     <Content Include="static\css\site.css" />
     <Content Include="static\img\ajax-loader.gif" />
     <Content Include="static\js\jquery-1.7.1.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -167,6 +169,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\AppWall\NewAppWallForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

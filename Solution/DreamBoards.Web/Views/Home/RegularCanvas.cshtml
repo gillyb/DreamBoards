@@ -5,7 +5,7 @@
     ViewBag.Title = "RegularCanvas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-Connection String = @ConfigurationManager.AppSettings["MYSQL_CONNECTION_STRING"];
+Connection String = @ConfigurationManager.AppSettings["DbConnString"];
 <h2>Regular Canvas</h2>
 <p><a href="@Model.RegularCanvasURL" target="_top">Regular Canvas</a> | <a href="@Model.FullCanvasURL" target="_top">Full Canvas</a> 
 | @Html.ActionLink("Create a new app wall", "NewAppWallForm", "AppWall")</p>

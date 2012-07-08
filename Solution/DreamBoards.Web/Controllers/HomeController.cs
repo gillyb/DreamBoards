@@ -41,7 +41,7 @@ namespace DreamBoards.Web.Controllers
 		[PatternRoute("/test")]
 		public ActionResult Test()
 		{
-			return Content("OK");
+			return View();
 		}
 
 		[PatternRoute("/publish-story")]

@@ -8,7 +8,7 @@
 
 .float { float: left; }
 .breaker { clear: both; }
-.canvas { width: 600px;height: 600px;border: solid 1px blue; }
+.canvas { width: 600px;height: 600px;border: solid 1px blue;position: relative; }
 .toolbox { width: 500px;margin-left: 30px; }
 .tool-cage { display: inline-block;width: 100px;height: 100px;overflow: hidden;}
 .thumbnail-container {border: solid 1px grey;padding: 0px;display: inline-block;}

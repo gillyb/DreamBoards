@@ -13,39 +13,58 @@
 	<div class="thumbnail-container">
 		<img class="thumbnail" src="../../static/img/hats/01.jpg">
 	</div>
-
 	<div class="thumbnail-container">
 		<img class="thumbnail" src="../../static/img/hats/02.jpg">
 	</div>
 	<div class="thumbnail-container">
 		<img class="thumbnail" src="../../static/img/hats/03.jpg">
 	</div>
-	<img class="thumbnail float" src="../../static/img/hats/04.jpg">
-	<img class="thumbnail float" src="../../static/img/hats/05.jpg">
-	<img class="thumbnail float" src="../../static/img/hats/06.jpg">
-	<img class="thumbnail float" src="../../static/img/hats/07.jpg">
-	<img class="thumbnail float" src="../../static/img/hats/08.jpg">
-	<img class="thumbnail float" src="../../static/img/hats/09.jpg">
-	<img class="thumbnail float" src="../../static/img/hats/10.jpg">
+	<div class="thumbnail-container">
+		<img class="thumbnail" src="../../static/img/hats/04.jpg">
+	</div>
+	<div class="thumbnail-container">
+		<img class="thumbnail" src="../../static/img/hats/05.jpg">
+	</div>
+	<div class="thumbnail-container">
+		<img class="thumbnail" src="../../static/img/hats/06.jpg">
+	</div>
+	<div class="thumbnail-container">
+		<img class="thumbnail" src="../../static/img/hats/07.jpg">
+	</div>
+	<div class="thumbnail-container">
+		<img class="thumbnail" src="../../static/img/hats/08.jpg">
+	</div>
+	<div class="thumbnail-container">
+		<img class="thumbnail" src="../../static/img/hats/09.jpg">
+	</div>
+	<div class="thumbnail-container">
+		<img class="thumbnail" src="../../static/img/hats/10.jpg">
+	</div>
 </div>
 
 <div class="breaker"></div>
 
 <script language="javascript" type="text/javascript">
 	$(function() {
-		$('.canvas').droppable({ tolerance: 'fit' });
-		$('.toolbox .thumbnail-container .thumbnail').resizable();
+		$('.canvas').droppable({
+			tolerance: 'fit',
+			drop: function(event, ui) {
+				if (ui.draggable.parents('.canvas').length > 0) return;
+				ui.draggable
+					.clone()
+					.appendTo($(this))
+					.css(ui.position)
+					.css('position', 'absolute')
+					.draggable({
+						helper: 'original',
+						revert: 'invalid'
+					})
+					.find('.thumbnail').resizable();
+			}
+		});
 		$('.toolbox .thumbnail-container').draggable({
 			revert: 'invalid',
-			stop: function(event, ui) {
-				var itemPosition = $(this).position();
-				$(this).appendTo('.canvas');
-				$(this).css({
-					position: 'absolute',
-					top: itemPosition.top,
-					left: itemPosition.left
-				});
-			}
+			helper: 'clone'
 		});
 	});
 </script>

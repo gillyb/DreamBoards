@@ -24,6 +24,8 @@ namespace DreamBoards.Web.Controllers
 		[PatternRoute("/landing")]
 		public ActionResult Landing()
 		{
+			var s = _platformProxy.Get<List<long>>("/products/discover/popular");
+
 			var userState = _platformProxy.Get<UserState>("auth/user-state");
 
 			var viewModel = new LandingPageViewModel();

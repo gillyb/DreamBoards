@@ -9,5 +9,8 @@ input, select, textarea, fieldset { margin:0;padding:0;border:0;outline:0;vertic
 body { padding: 10px;background-color: #F7F7F6; }
 
 .float { float: left; }
-.foat-right { float: right; }
+.float-right { float: right; }
 .breaker { clear: both; }
+
+
+.round-corners { -moz-border-radius: 8px; -webkit-border-radius: 8px; -khtml-border-radius: 8px; border-radius: 8px; }

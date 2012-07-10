@@ -9,9 +9,9 @@ namespace DreamBoards.Domain.Settings
 
 	public class ApplicationSettings : IApplicationSettings
 	{
-		public string AppSecret { get { return "d836f9ae-70f5-4477-8226-97e14d61"; } }
+		public string AppSecret { get { return "1E3E6AEE-6B7E-4A05-93BD-60F6087F"; } }
 
-		public long AppId { get { return 100; } }
+		public long AppId { get { return 777; } }
 
 		public string CookieName { get { return "dreamboards"; } }
 	}

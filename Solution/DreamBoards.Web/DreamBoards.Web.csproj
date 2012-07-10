@@ -185,6 +185,7 @@
     <Content Include="static\img\hats\10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="static\img\logo.png" />
     <Content Include="static\js\jquery-1.7.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

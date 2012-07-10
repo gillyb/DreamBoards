@@ -8,9 +8,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="canvas float">
-
+<div class="left-section float">
+	<div class="header">
+		<span class="logo"></span>
+		<div class="action-buttons">
+			Save | Create Catalog | Brag | Share
+		</div>
+	</div>
+	<div class="canvas">
+		<div class="teaser">Drag products here to get started...</div>
+	</div>
 </div>
+
+<div class="right-section float">
+	<div class="header"></div>
+	<div class="browse-section round-corners">
+		SELECT CATEGORY : 
+		<select id="category-dropdown">
+			<option value=""></option>
+			<option value=""></option>
+			<option value=""></option>
+			<option value=""></option>
+			<option value=""></option>
+		</select>
+	</div>
+</div>
+
 
 <div class="toolbox float">
 	<div class="thumbnail-container">

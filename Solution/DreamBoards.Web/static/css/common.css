@@ -1,0 +1,13 @@
+﻿
+* {	font-family	: Trebuchet MS, Arial; font-size:inherit; color:inherit; font-weight:normal; }
+html, body, div, h1, h2, h3, h4, h5, h6, p, object, iframe, blockquote, pre, ul, ol, li, 
+span, button, img, q, a, strong, cite, form,
+table, caption, tbody, tfoot, thead, tr, th, td, hr,
+input, select, textarea, fieldset { margin:0;padding:0;border:0;outline:0;vertical-align:baseline; }
+
+
+body { padding: 10px;background-color: #F7F7F6; }
+
+.float { float: left; }
+.foat-right { float: right; }
+.breaker { clear: both; }

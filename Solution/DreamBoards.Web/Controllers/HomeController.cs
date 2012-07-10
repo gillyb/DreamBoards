@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using CommonGround.MvcInvocation;
 using DreamBoards.Domain.Products;
 using DreamBoards.Domain.Settings;
+using DreamBoards.Web.Services;
 using DreamBoards.Web.ViewModels;
 using PlatformClient.Platform;
 
@@ -14,13 +15,15 @@ namespace DreamBoards.Web.Controllers
     	private readonly IApplicationSettings _applicationSettings;
     	private readonly IPlatformSettings _platformSettings;
     	private readonly IApiProductsService _apiProductsService;
+    	private readonly IImageService _imageService;
 
-		public HomeController(IPlatformProxy platformProxy, IApplicationSettings applicationSettings, IPlatformSettings platformSettings, IApiProductsService apiProductsService)
+		public HomeController(IPlatformProxy platformProxy, IApplicationSettings applicationSettings, IPlatformSettings platformSettings, IApiProductsService apiProductsService, IImageService imageService)
     	{
     		_platformProxy = platformProxy;
 			_applicationSettings = applicationSettings;
 			_platformSettings = platformSettings;
 			_apiProductsService = apiProductsService;
+			_imageService = imageService;
     	}
 
 		[PatternRoute("/")]
@@ -52,6 +55,13 @@ namespace DreamBoards.Web.Controllers
 
 
 			return View();
+		}
+
+		[PatternRoute("/test2")]
+		public ActionResult GetImageTest(string url)
+		{
+			var newImageFile = _imageService.MakeImageTransparent(url);
+			return Content(newImageFile);
 		}
 
 		[PatternRoute("/publish-story")]

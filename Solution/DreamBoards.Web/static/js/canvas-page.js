@@ -12,6 +12,7 @@ $(function() {
 				$(data).each(function(index, element) {
 					$('.items-container').append(wrapImageForToolBox(element.imageUrl));
 				});
+				makeToolboxDraggable();
 			},
 			error: function() {
 				// TODO: display some nice error message
@@ -29,12 +30,13 @@ $(function() {
 		return item;
 	};
 
-	// initialize the drag & drop behaviors
-	$('.canvas').droppable({
-		tolerance: 'fit',
-		drop: function(event, ui) {
-			if (ui.draggable.parents('.canvas').length > 0) return;
-			ui.draggable
+
+	var makeCanvasDroppable = function() {
+		$('.canvas').droppable({
+			tolerance: 'fit',
+			drop: function(event, ui) {
+				if (ui.draggable.parents('.canvas').length > 0) return;
+				ui.draggable
 					.clone()
 					.appendTo($(this))
 					.css(ui.position)
@@ -45,12 +47,18 @@ $(function() {
 					})
 					.find('.thumbnail').resizable();
 
-			if ($('.teaser', '.canvas').length > 0)
-				$('.teaser', '.canvas').remove();
-		}
-	});
-	$('.items-container .thumbnail-container').draggable({
-		revert: 'invalid',
-		helper: 'clone'
-	});
+				if ($('.teaser', '.canvas').length > 0)
+					$('.teaser', '.canvas').remove();
+			}
+		});
+	};
+	var makeToolboxDraggable = function() {
+		$('.items-container .thumbnail-container').draggable({
+			revert: 'invalid',
+			helper: 'clone'
+		});
+	};
+
+	makeCanvasDroppable();
+	makeToolboxDraggable();
 });

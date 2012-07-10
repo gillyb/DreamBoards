@@ -30,7 +30,6 @@ $(function() {
 		return item;
 	};
 
-
 	var makeCanvasDroppable = function() {
 		$('.canvas').droppable({
 			tolerance: 'fit',

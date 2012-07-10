@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AppWallController.cs" />
+    <Compile Include="Controllers\CanvasActionsController.cs" />
     <Compile Include="Controllers\CreateCanvasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandingController.cs" />
@@ -188,6 +189,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="static\img\logo.png" />
+    <Content Include="static\js\canvas-actions.js" />
     <Content Include="static\js\canvas-page.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -15,3 +15,5 @@ select { border: solid 1px grey;}
 
 
 .round-corners { -moz-border-radius: 8px; -webkit-border-radius: 8px; -khtml-border-radius: 8px; border-radius: 8px; }
+.action-link { cursor: pointer; }
+.action-link:hover { text-decoration: underline;}

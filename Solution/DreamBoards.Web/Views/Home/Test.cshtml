@@ -23,74 +23,53 @@
 <div class="right-section float">
 	<div class="header"></div>
 	<div class="browse-section round-corners">
-		SELECT CATEGORY : 
-		<select id="category-dropdown">
-			<option value=""></option>
-			<option value=""></option>
-			<option value=""></option>
-			<option value=""></option>
-			<option value=""></option>
-		</select>
+		<div class="category-browser">
+			SELECT CATEGORY : 
+			<select id="category-dropdown">
+				<option value="0"></option>
+				<option value="1005">Category 1</option>
+				<option value="1010">Category 2</option>
+				<option value="1014">Category 3</option>
+				<option value="1015">Category 4</option>
+				<option value="1016">Category 5</option>
+			</select>
+		</div>
+		
+		<div class="items-container">
+			<div class="thumbnail-container">
+				<img class="thumbnail" src="../../static/img/hats/01.jpg">
+			</div>
+			<div class="thumbnail-container">
+				<img class="thumbnail" src="../../static/img/hats/02.jpg">
+			</div>
+			<div class="thumbnail-container">
+				<img class="thumbnail" src="../../static/img/hats/03.jpg">
+			</div>
+			<div class="thumbnail-container">
+				<img class="thumbnail" src="../../static/img/hats/04.jpg">
+			</div>
+			<div class="thumbnail-container">
+				<img class="thumbnail" src="../../static/img/hats/05.jpg">
+			</div>
+			<div class="thumbnail-container">
+				<img class="thumbnail" src="../../static/img/hats/06.jpg">
+			</div>
+			<div class="thumbnail-container">
+				<img class="thumbnail" src="../../static/img/hats/07.jpg">
+			</div>
+			<div class="thumbnail-container">
+				<img class="thumbnail" src="../../static/img/hats/08.jpg">
+			</div>
+			<div class="thumbnail-container">
+				<img class="thumbnail" src="../../static/img/hats/09.jpg">
+			</div>
+			<div class="thumbnail-container">
+				<img class="thumbnail" src="../../static/img/hats/10.jpg">
+			</div>
+		</div>
 	</div>
 </div>
 
 
-<div class="toolbox float">
-	<div class="thumbnail-container">
-		<img class="thumbnail" src="../../static/img/hats/01.jpg">
-	</div>
-	<div class="thumbnail-container">
-		<img class="thumbnail" src="../../static/img/hats/02.jpg">
-	</div>
-	<div class="thumbnail-container">
-		<img class="thumbnail" src="../../static/img/hats/03.jpg">
-	</div>
-	<div class="thumbnail-container">
-		<img class="thumbnail" src="../../static/img/hats/04.jpg">
-	</div>
-	<div class="thumbnail-container">
-		<img class="thumbnail" src="../../static/img/hats/05.jpg">
-	</div>
-	<div class="thumbnail-container">
-		<img class="thumbnail" src="../../static/img/hats/06.jpg">
-	</div>
-	<div class="thumbnail-container">
-		<img class="thumbnail" src="../../static/img/hats/07.jpg">
-	</div>
-	<div class="thumbnail-container">
-		<img class="thumbnail" src="../../static/img/hats/08.jpg">
-	</div>
-	<div class="thumbnail-container">
-		<img class="thumbnail" src="../../static/img/hats/09.jpg">
-	</div>
-	<div class="thumbnail-container">
-		<img class="thumbnail" src="../../static/img/hats/10.jpg">
-	</div>
-</div>
 
 <div class="breaker"></div>
-
-<script language="javascript" type="text/javascript">
-	$(function() {
-		$('.canvas').droppable({
-			tolerance: 'fit',
-			drop: function(event, ui) {
-				if (ui.draggable.parents('.canvas').length > 0) return;
-				ui.draggable
-					.clone()
-					.appendTo($(this))
-					.css(ui.position)
-					.css('position', 'absolute')
-					.draggable({
-						helper: 'original',
-						revert: 'invalid'
-					})
-					.find('.thumbnail').resizable();
-			}
-		});
-		$('.toolbox .thumbnail-container').draggable({
-			revert: 'invalid',
-			helper: 'clone'
-		});
-	});
-</script>

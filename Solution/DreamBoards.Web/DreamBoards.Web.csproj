@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AppWallController.cs" />
+    <Compile Include="Controllers\CreateCanvasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandingController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -186,13 +187,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="static\img\logo.png" />
-    <Content Include="static\js\jquery-1.7.1.min.js">
+    <Content Include="static\js\canvas-page.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="static\js\jquery-1.7.2.min.js">
+    <Content Include="static\js\jquery\jquery-1.7.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="static\js\jquery-ui-1.8.21.custom.min.js">
+    <Content Include="static\js\jquery\jquery-1.7.2.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="static\js\jquery\jquery-ui-1.8.21.custom.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Web.config">

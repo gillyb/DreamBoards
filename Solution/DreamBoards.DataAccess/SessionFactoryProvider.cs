@@ -4,12 +4,24 @@ using NHibernate;
 
 namespace DreamBoards.DataAccess
 {
-	public class SessionFactoryProvider
+	public interface ISessionFactoryProvider
 	{
-		public ISessionFactory BuildSessionFactory(string connString)
+		ISessionFactory BuildSessionFactory();
+	}
+
+	public class SessionFactoryProvider : ISessionFactoryProvider
+	{
+		public string ConnString { get; private set; }
+
+		public SessionFactoryProvider(string connString)
+		{
+			ConnString = connString;
+		}
+
+		public ISessionFactory BuildSessionFactory()
 		{
 			return Fluently.Configure().Database(
-				MySQLConfiguration.Standard.ConnectionString(connString)
+				MySQLConfiguration.Standard.ConnectionString(ConnString)
 			).Mappings(
 				x => x.FluentMappings.AddFromAssemblyOf<SessionFactoryProvider>()
 			).BuildSessionFactory();

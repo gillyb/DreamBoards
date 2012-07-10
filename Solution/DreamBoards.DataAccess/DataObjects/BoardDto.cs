@@ -2,7 +2,7 @@
 
 namespace DreamBoards.DataAccess.DataObjects
 {
-	public class DreamBoardDto
+	public class BoardDto
 	{
 		public long Id { get; set; }
 		public long UserId { get; set; }

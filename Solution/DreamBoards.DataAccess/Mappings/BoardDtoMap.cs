@@ -3,9 +3,9 @@ using FluentNHibernate.Mapping;
 
 namespace DreamBoards.DataAccess.Mappings
 {
-	public class DreamBoardDtoMap : ClassMap<DreamBoardDto>
+	public class BoardDtoMap : ClassMap<BoardDto>
 	{
-		public DreamBoardDtoMap()
+		public BoardDtoMap()
 		{
 			Table("dreamboards");
 			Not.LazyLoad();

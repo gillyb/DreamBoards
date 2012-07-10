@@ -57,6 +57,7 @@
     <Compile Include="Mappings\BoardDtoMap.cs" />
     <Compile Include="Mappings\BoardItemDtoMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BoardItemsRepository.cs" />
     <Compile Include="Repositories\BoardsRepository.cs" />
     <Compile Include="SessionFactoryProvider.cs" />
   </ItemGroup>

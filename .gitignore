@@ -14,3 +14,6 @@ out/
 bin/
 obj/
 *.DotSettings.user
+
+#User Generated Content
+/**/UGC/*

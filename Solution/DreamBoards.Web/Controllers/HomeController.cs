@@ -68,13 +68,17 @@ namespace DreamBoards.Web.Controllers
 			{
 				viewModel.User = _platformProxy.Get<User>("/users/current");
 
-				var board = _boardsRepository.LoadBoard(boardId);
-				if (board.UserId == viewModel.User.Id)
+				if (viewModel.User != null)
 				{
-					viewModel.Board = board;
-					viewModel.BoardItems = _boardItemsRepository.GetBoardItems(board.Id);
+					var board = _boardsRepository.LoadBoard(boardId);
+					if (board.UserId == viewModel.User.Id)
+					{
+						viewModel.Board = board;
+						viewModel.BoardItems = _boardItemsRepository.GetBoardItems(board.Id);
+					}
 				}
 			}
+
 			if (viewModel.BoardItems == null)
 				viewModel.BoardItems = new List<BoardItemDto>();
 

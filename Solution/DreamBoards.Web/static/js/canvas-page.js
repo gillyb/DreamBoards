@@ -58,6 +58,34 @@ $(function() {
 		});
 	};
 
+	var loadExistingCanvasImages = function() {
+		if (boardItems.length == 0) return;
+
+		$('.teaser', '.canvas').remove();
+		$(boardItems).each(function(index, item) {
+			var newItem = wrapImageForToolBox(item.ImageUrl);
+			newItem
+				.appendTo('.canvas')
+				.css({
+					position: 'absolute',
+					top: item.PosY,
+					left: item.PosX
+				})
+				.draggable({
+					helper: 'original',
+					revert: 'invalid'
+				})
+				.find('.thumbnail')
+				.css({
+					width: item.Width,
+					height: item.Height
+				})
+				.attr('src', item.ImageUrl)
+				.resizable();
+		});
+	};
+
 	makeCanvasDroppable();
 	makeToolboxDraggable();
+	loadExistingCanvasImages();
 });

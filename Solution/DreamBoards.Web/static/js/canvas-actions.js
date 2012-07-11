@@ -2,13 +2,13 @@
 $(function() {
 
 	$('.action-link.save').click(function() {
+		var id = $('.canvas').data('board-id');
 		var items = [];
 		$('.canvas .thumbnail-container').each(function(index, element) {
 			var elem = $(element);
 			var itemImage = elem.find('.thumbnail');
-			var item = {
-				itemId: 0,
-				boardId: 0,
+			items.push({
+				boardId: id,
 				ProductId: 0,
 				CatalogId: 0,
 				ImageUrl: itemImage.attr('src'),
@@ -18,18 +18,16 @@ $(function() {
 				Height: itemImage.height(),
 				Rotation: 0,
 				Layer: 0
-			};
-			items.push(item);
+			});
 		});
 		
-		var data = { boardItems: items };
 		$.ajax({
 			url: '/-/canvas/save',
 			type: 'POST',
 			dataType: 'json',
-			data: JSON.stringify(data),
+			data: JSON.stringify({ boardId: id, boardItems: items }),
 			contentType: 'application/json; charset=utf-8',
-			success: function(d) {
+			success: function(data) {
 				debugger;
 			},
 			error: function(xhr) {

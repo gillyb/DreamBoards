@@ -9,14 +9,19 @@ namespace DreamBoards.Web.Controllers
 {
 	public class CanvasActionsController : ControllerBase
 	{
-		public CanvasActionsController()
+		private readonly IBoardItemsRepository _boardItemsRepository;
+
+		public CanvasActionsController(IBoardItemsRepository boardItemsRepository)
 		{
+			_boardItemsRepository = boardItemsRepository;
 		}
 
 		[HttpPost]
 		[PatternRoute("/-/canvas/save")]
-		public ActionResult SaveBoard(List<BoardItemDto> boardItems)
+		public ActionResult SaveBoard(int boardId, List<BoardItemDto> boardItems)
 		{
+			_boardItemsRepository.SaveBoardItems(boardId, boardItems);
+
 			return Json("OK");
 		}
 	}

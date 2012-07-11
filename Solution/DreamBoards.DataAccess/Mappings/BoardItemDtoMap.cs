@@ -14,6 +14,7 @@ namespace DreamBoards.DataAccess.Mappings
 			Map(x => x.BoardId);
 			Map(x => x.ProductId);
 			Map(x => x.CatalogId);
+			Map(x => x.ImageUrl);
 			Map(x => x.PosX);
 			Map(x => x.PosY);
 			Map(x => x.Width);

@@ -2,8 +2,11 @@
 using System.Web.Mvc;
 using CommonGround.MvcInvocation;
 using DreamBoards.DataAccess;
+using DreamBoards.DataAccess.DataObjects;
+using DreamBoards.DataAccess.Repositories;
 using DreamBoards.Domain.Products;
 using DreamBoards.Domain.Settings;
+using DreamBoards.Domain.User;
 using DreamBoards.Web.Services;
 using DreamBoards.Web.ViewModels;
 using PlatformClient.Platform;
@@ -17,14 +20,18 @@ namespace DreamBoards.Web.Controllers
     	private readonly IPlatformSettings _platformSettings;
     	private readonly IApiProductsService _apiProductsService;
     	private readonly IImageService _imageService;
+    	private readonly IBoardsRepository _boardsRepository;
+    	private readonly IBoardItemsRepository _boardItemsRepository;
 
-		public HomeController(IPlatformProxy platformProxy, IApplicationSettings applicationSettings, IPlatformSettings platformSettings, IApiProductsService apiProductsService, IImageService imageService)
+		public HomeController(IPlatformProxy platformProxy, IApplicationSettings applicationSettings, IPlatformSettings platformSettings, IApiProductsService apiProductsService, IImageService imageService, IBoardsRepository boardsRepository, IBoardItemsRepository boardItemsRepository)
     	{
     		_platformProxy = platformProxy;
 			_applicationSettings = applicationSettings;
 			_platformSettings = platformSettings;
 			_apiProductsService = apiProductsService;
 			_imageService = imageService;
+			_boardsRepository = boardsRepository;
+			_boardItemsRepository = boardItemsRepository;
     	}
 
 		[PatternRoute("/")]
@@ -51,9 +58,27 @@ namespace DreamBoards.Web.Controllers
         }
 
 		[PatternRoute("/test")]
-		public ActionResult Test()
+		public ActionResult Test(int boardId)
 		{
-			return View();
+			var userState = _platformProxy.Get<UserState>("auth/user-state");
+
+			var viewModel = new CanvasPageViewModel();
+
+			if (userState == UserState.Authenticated || userState == UserState.Authorized)
+			{
+				viewModel.User = _platformProxy.Get<User>("/users/current");
+
+				var board = _boardsRepository.LoadBoard(boardId);
+				if (board.UserId == viewModel.User.Id)
+				{
+					viewModel.Board = board;
+					viewModel.BoardItems = _boardItemsRepository.GetBoardItems(board.Id);
+				}
+			}
+			if (viewModel.BoardItems == null)
+				viewModel.BoardItems = new List<BoardItemDto>();
+
+			return View(viewModel);
 		}
 		
 		[PatternRoute("/test2")]

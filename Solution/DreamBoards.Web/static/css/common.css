@@ -12,6 +12,8 @@ select { border: solid 1px grey;}
 .float { float: left; }
 .float-right { float: right; }
 .breaker { clear: both; }
+.hidden { display: none; }
+.invisible { visibility: hidden; }
 
 
 .round-corners { -moz-border-radius: 8px; -webkit-border-radius: 8px; -khtml-border-radius: 8px; border-radius: 8px; }

@@ -1,5 +1,4 @@
-﻿@using System.Configuration
-@model object
+﻿@model DreamBoards.Web.ViewModels.CanvasPageViewModel
 		   
 @{
     ViewBag.Title = "DreamBoards | Create your own DreamBoard";
@@ -70,6 +69,26 @@
 	</div>
 </div>
 
-
+<script language="javascript" type="text/javascript">
+	var boardItems = [];
+</script>
+@foreach (var boardItem in Model.BoardItems)
+{
+	<script language="javascript" type="text/javascript">
+		boardItems.push({
+			ItemId: @boardItem.ItemId,
+			BoardId: @boardItem.BoardId,
+			ProductId: @boardItem.ProductId,
+			CatalogId: @boardItem.CatalogId,
+			ImageUrl: '@boardItem.ImageUrl',
+			PosX: @boardItem.PosX,
+			PosY: @boardItem.PosY,
+			Width: @boardItem.Width,
+			Height: @boardItem.Height,
+			Rotation: @boardItem.Rotation,
+			Layer: @boardItem.Layer
+		});
+	</script>
+}
 
 <div class="breaker"></div>

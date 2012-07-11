@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AppWallController.cs" />
     <Compile Include="Controllers\CanvasActionsController.cs" />
+    <Compile Include="ViewModels\CanvasPageViewModel.cs" />
     <Compile Include="Controllers\CreateCanvasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandingController.cs" />

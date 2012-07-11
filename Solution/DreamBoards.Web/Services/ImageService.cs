@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Drawing.Imaging;
+using System.Linq;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Net;
+using DreamBoards.DataAccess.DataObjects;
 
 namespace DreamBoards.Web.Services
 {
 	public interface IImageService
 	{
 		string MakeImageTransparent(string imageUrl);
+		Bitmap SaveBoardAsImage(List<BoardItemDto> boardItems);
 	}
 
 	public class ImageService : IImageService
@@ -21,6 +27,39 @@ namespace DreamBoards.Web.Services
 			DownloadRemoteImageFile(imageUrl, "static/test.jpg");
 
 			return string.Empty;
+		}
+
+		public Bitmap SaveBoardAsImage(List<BoardItemDto> boardItems)
+		{
+			var finalImage = new Bitmap(600, 600);
+			using (var finalGraphics = Graphics.FromImage(finalImage))
+			{
+				finalGraphics.Clear(Color.White);
+				foreach (var item in boardItems)
+				{
+					var itemImage = GetImageFromUrl(item.ImageUrl);
+					finalGraphics.DrawImage(itemImage, (float)item.PosX, (float)item.PosY,
+						(float)item.Width, (float)item.Height);
+				}
+			}
+			finalImage.Save("gilly-image.jpg", ImageFormat.Jpeg);
+			return finalImage;
+		}
+
+		private Image GetImageFromUrl(string imageUrl)
+		{
+			var request = (HttpWebRequest)WebRequest.Create(imageUrl);
+			var response = (HttpWebResponse)request.GetResponse();
+
+			if ((response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Moved ||
+				response.StatusCode == HttpStatusCode.Redirect) && response.ContentType.StartsWith("image", StringComparison.OrdinalIgnoreCase))
+			{
+				using (var inputStream = response.GetResponseStream())
+					if (inputStream != null)
+						return new Bitmap(inputStream);
+			}
+
+			return null;
 		}
 
 		private static void DownloadRemoteImageFile(string uri, string fileName)

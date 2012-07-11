@@ -2,16 +2,54 @@
 @using DreamBoards.Domain.User
 @using DreamBoards.Domain.Tags
 @using DreamBoards.Domain.User
+@using DreamBoards.Web.Services
 @model DreamBoards.Web.ViewModels.LandingPageViewModel
 @{
 	ViewBag.Title = "Index";
+	ViewBag.BodyId = "landing-page";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Landing page</h2>
+<div class="container">
+	
+	<div class="header">
+		<span class="logo"></span>
+	</div>
+	<div class="create-board-section">
+		<span class="create-new-board">Create a new DreamBoard</span>
+		
+		<div class="create-board-form">
+			<div class="label name float">NAME </div>
+			<div class="input-container float name">
+				<input type="text" id="board-name"/>
+			</div>
+			<div class="label float">DESCRIPTION </div>
+			<div class="input-container float">
+				<textarea id="board-description"></textarea>
+			</div>
+			<div class="submit-section">
+				<span class="submit-button">Create</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="popular-boards">
+		<div class="header">Popular Boards</div>
+		
+		<div class="columns">
+			@foreach (var board in Model.PopularBoards)
+			{
+				<div class="pin">
+					<div class="board-image-container">
+						<img class="board" src="@ViewHelperService.GetImageBoardUrl(board.BoardImage)" />
+					</div>
+					<div class="board-title">@board.Title</div>
+					<div class="board-description">@board.Description</div>
+					<div class="board-date">@board.CreatedDate</div>
+				</div>
+			}
+		</div>
 
-Create a new board: <br/>
-Name<input type="text" id="board-name"/><br/>
-Description<input type="text" id="board-description"/><br/>
-		   
-<span class="create-board action-buttons">Create</span>
+	</div>
+
+</div>

@@ -86,6 +86,7 @@
     <Compile Include="Controllers\AppWallController.cs" />
     <Compile Include="Controllers\CanvasActionsController.cs" />
     <Compile Include="Controllers\ImageServiceController.cs" />
+    <Compile Include="Services\ViewHelperService.cs" />
     <Compile Include="Services\ImageServiceSettings.cs" />
     <Compile Include="ViewModels\CanvasPageViewModel.cs" />
     <Compile Include="Controllers\CreateCanvasController.cs" />
@@ -115,6 +116,7 @@
     <Content Include="static\css\canvas-page.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="static\css\landing-page.css" />
     <Content Include="static\css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

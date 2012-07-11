@@ -10,6 +10,7 @@ namespace DreamBoards.DataAccess.Repositories
 		BoardDto GetBoard(int boardId);
 		void UpdateBoard(BoardDto board);
 		List<BoardDto> GetUsersBoards(long userId);
+		List<BoardDto> GetPopularBoards();
 	}
 
 	public class BoardsRepository : IBoardsRepository
@@ -60,6 +61,19 @@ namespace DreamBoards.DataAccess.Repositories
 			{
 				var boards = session.QueryOver<BoardDto>()
 					.Where(x => x.UserId == userId)
+					.List<BoardDto>();
+				return boards.ToList();
+			}
+		}
+
+		public List<BoardDto> GetPopularBoards()
+		{
+			using (var sessionFactory = _sessionFactoryProvider.BuildSessionFactory())
+			using (var session = sessionFactory.OpenSession())
+			{
+				var boards = session.QueryOver<BoardDto>()
+					.OrderBy(x => x.CreatedDate).Asc
+					.Take(20)
 					.List<BoardDto>();
 				return boards.ToList();
 			}

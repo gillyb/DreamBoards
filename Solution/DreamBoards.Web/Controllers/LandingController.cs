@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using System.Web.Mvc;
 using CommonGround.MvcInvocation;
 using DreamBoards.DataAccess.Repositories;
 using DreamBoards.Domain.PlatformApiServices;
-using DreamBoards.Domain.Tags;
 using DreamBoards.Domain.User;
 using DreamBoards.Web.ViewModels;
 using PlatformClient.Platform;
@@ -29,24 +28,18 @@ namespace DreamBoards.Web.Controllers
 		[PatternRoute("/landing")]
 		public ActionResult Landing(int boardId)
 		{
+			var model = new LandingPageViewModel();
 			var userState = _platformProxy.Get<UserState>("auth/user-state");
-
-			var viewModel = new LandingPageViewModel();
-
 			if (userState == UserState.Authenticated || userState == UserState.Authorized)
 			{
-				var currentUser = _platformProxy.Get<User>("/users/current");
-				viewModel.UserName = currentUser.Name;
-
-				var board = _boardsRepository.GetBoard(boardId);
-				if (board.UserId != currentUser.Id)
-				{
-					viewModel.BoardId = board.Id;
-					viewModel.BoardItems = _boardItemsRepository.GetBoardItems(board.Id);
-				}
+				model.User = _platformProxy.Get<User>("/users/current");
+				model.UsersBoards = _boardsRepository.GetUsersBoards(model.User.Id);
 			}
 
-			return View(viewModel);
+			model.PopularBoards = _boardsRepository.GetPopularBoards()
+				.Where(x => !string.IsNullOrEmpty(x.BoardImage)).ToList();
+
+			return View(model);
 		}
     }
 }

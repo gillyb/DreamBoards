@@ -81,10 +81,41 @@ namespace DreamBoards.Web.Controllers
 			if (viewModel.BoardItems == null)
 				viewModel.BoardItems = new List<BoardItemDto>();
 
+			viewModel.Cateogories = GetCategoryList();
+
 			return View(viewModel);
 		}
-		
-		[PatternRoute("/test2")]
+
+    	private static List<KeyValuePair<string, int>> GetCategoryList()
+    	{
+			// TagId's from production - i need to find the matching category id's...
+			//return new List<KeyValuePair<string, int>> { // TODO: these are actually tagid's - i need to find there matching category id
+			//    new KeyValuePair<string, int>("Dresses", 1077153),
+			//    new KeyValuePair<string, int>("Swimwear", 1077162),
+			//    new KeyValuePair<string, int>("Tops", 1077163),
+			//    new KeyValuePair<string, int>("Jeans", 1077155),
+			//    new KeyValuePair<string, int>("Skirts", 1077159),
+			//    new KeyValuePair<string, int>("Necklaces", 1079382),
+			//    new KeyValuePair<string, int>("Earrings", 1079383),
+			//    new KeyValuePair<string, int>("Jackets", 1077154),
+			//    new KeyValuePair<string, int>("Various", 2658148),
+			//    new KeyValuePair<string, int>("Sunglasses", 1077029) };
+
+			// Shavrir Categories
+			return new List<KeyValuePair<string, int>> {
+    			new KeyValuePair<string, int>("Dresses", 1002),
+    			new KeyValuePair<string, int>("Swimwear", 1005),
+    			new KeyValuePair<string, int>("Tops", 1010),
+    			new KeyValuePair<string, int>("Jeans", 1014),
+    			new KeyValuePair<string, int>("Skirts", 1015),
+    			new KeyValuePair<string, int>("Necklaces", 1016),
+    			new KeyValuePair<string, int>("Earrings", 1018),
+    			new KeyValuePair<string, int>("Jackets", 1019),
+    			new KeyValuePair<string, int>("Various", 1020),
+    			new KeyValuePair<string, int>("Sunglasses", 1021) };
+    	}
+
+    	[PatternRoute("/test2")]
 		public ActionResult GetImageTest(string url)
 		{
 			var newImageFile = _imageService.MakeImageTransparent(url);

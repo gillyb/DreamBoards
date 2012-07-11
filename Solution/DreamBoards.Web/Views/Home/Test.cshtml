@@ -25,46 +25,15 @@
 		<div class="category-browser">
 			SELECT CATEGORY : 
 			<select id="category-dropdown">
-				<option value="0"></option>
-				<option value="1005">Category 1</option>
-				<option value="1010">Category 2</option>
-				<option value="1014">Category 3</option>
-				<option value="1015">Category 4</option>
-				<option value="1016">Category 5</option>
+				@foreach (var category in Model.Cateogories)
+				{
+					<option value="@category.Value">@category.Key</option>
+				}
 			</select>
 		</div>
 		
 		<div class="items-container">
-			<div class="thumbnail-container">
-				<img class="thumbnail" src="../../static/img/hats/01.jpg">
-			</div>
-			<div class="thumbnail-container">
-				<img class="thumbnail" src="../../static/img/hats/02.jpg">
-			</div>
-			<div class="thumbnail-container">
-				<img class="thumbnail" src="../../static/img/hats/03.jpg">
-			</div>
-			<div class="thumbnail-container">
-				<img class="thumbnail" src="../../static/img/hats/04.jpg">
-			</div>
-			<div class="thumbnail-container">
-				<img class="thumbnail" src="../../static/img/hats/05.jpg">
-			</div>
-			<div class="thumbnail-container">
-				<img class="thumbnail" src="../../static/img/hats/06.jpg">
-			</div>
-			<div class="thumbnail-container">
-				<img class="thumbnail" src="../../static/img/hats/07.jpg">
-			</div>
-			<div class="thumbnail-container">
-				<img class="thumbnail" src="../../static/img/hats/08.jpg">
-			</div>
-			<div class="thumbnail-container">
-				<img class="thumbnail" src="../../static/img/hats/09.jpg">
-			</div>
-			<div class="thumbnail-container">
-				<img class="thumbnail" src="../../static/img/hats/10.jpg">
-			</div>
+			
 		</div>
 	</div>
 </div>

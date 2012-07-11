@@ -15,9 +15,9 @@ namespace DreamBoards.Web.Controllers
 
 		[HttpPost]
 		[PatternRoute("/-/canvas/save")]
-		public ActionResult SaveBoard(BoardItemDto[] boardItems)
+		public ActionResult SaveBoard(List<BoardItemDto> boardItems)
 		{
-			return Content("OK");
+			return Json("OK");
 		}
 	}
 }

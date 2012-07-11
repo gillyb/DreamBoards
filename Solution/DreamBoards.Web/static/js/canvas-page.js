@@ -44,7 +44,7 @@ $(function() {
 						helper: 'original',
 						revert: 'invalid'
 					})
-					.find('.thumbnail').resizable();
+					.find('.thumbnail').transparent().resizable();
 
 				if ($('.teaser', '.canvas').length > 0)
 					$('.teaser', '.canvas').remove();

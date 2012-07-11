@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AppWallController.cs" />
     <Compile Include="Controllers\CanvasActionsController.cs" />
+    <Compile Include="Controllers\ImageServiceController.cs" />
     <Compile Include="Services\ImageServiceSettings.cs" />
     <Compile Include="ViewModels\CanvasPageViewModel.cs" />
     <Compile Include="Controllers\CreateCanvasController.cs" />
@@ -190,11 +191,13 @@
     <Content Include="static\img\hats\10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="static\img\loader.gif" />
     <Content Include="static\img\logo.png" />
     <Content Include="static\js\canvas-actions.js" />
     <Content Include="static\js\canvas-page.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="static\js\jquery.transparent.js" />
     <Content Include="static\js\landing-page.js" />
     <Content Include="static\js\jquery\jquery-1.7.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -274,6 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UGC\board_images\" />
+    <Folder Include="UGC\items\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -19,3 +19,7 @@ select { border: solid 1px grey;}
 .round-corners { -moz-border-radius: 8px; -webkit-border-radius: 8px; -khtml-border-radius: 8px; border-radius: 8px; }
 .action-link { cursor: pointer; }
 .action-link:hover { text-decoration: underline;}
+
+
+.thumbnail.loading { opacity: 0.5; }
+.thumbnail-container .loader { background-image: url(../../static/img/loader.gif);position: absolute;bottom: 50px;right: 50px;width: 64px;height: 64px;display: inline-block; }

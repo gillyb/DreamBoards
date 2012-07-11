@@ -2,7 +2,6 @@
 using System.Drawing.Imaging;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Net;
 using System.Web;
 using DreamBoards.DataAccess.DataObjects;
@@ -29,19 +28,31 @@ namespace DreamBoards.Web.Services
 
 		public string BoardImagesLibrary
 		{
-			get { return HttpContext.Current.Server.MapPath("~") + "UGC\\board_image\\"; }
+			get { return HttpContext.Current.Server.MapPath("~") + "UGC\\board_images\\"; }
+		}
+		public string ItemImagesLibrary
+		{
+			get { return HttpContext.Current.Server.MapPath("~") + "UGC\\items\\"; }
 		}
 
 		public string MakeImageTransparent(string imageUrl)
 		{
-			// TODO: add validation for image file extension
-			// TODO: download image from given url
-			// TODO: make the image transparent
-			// TODO: save on our server, and return url
+			var image = GetImageFromUrl(imageUrl);
+			var bgColor = image.GetPixel(0, 0);
 
-			DownloadRemoteImageFile(imageUrl, "static/test.jpg");
+			// TODO: add some kind of variety of colors for this... (not just white, make it white -> light grey)
+			for (var i = 0; i < image.Width; i++)
+				for (var j = 0; j < image.Height; j++)
+					if (image.GetPixel(i,j) == bgColor)
+						image.SetPixel(i,j,Color.Transparent);
 
-			return string.Empty;
+			image.MakeTransparent(Color.Transparent);
+
+			var fileName = Guid.NewGuid().ToString() + ".png";
+			var filePath = ItemImagesLibrary + fileName;
+			image.Save(filePath, ImageFormat.Png);
+
+			return fileName;
 		}
 
 		public Bitmap SaveBoardAsImage(List<BoardItemDto> boardItems)
@@ -58,9 +69,9 @@ namespace DreamBoards.Web.Services
 				}
 			}
 
-			var fileName = Guid.NewGuid().ToString() + ".jpg";
+			var fileName = Guid.NewGuid().ToString() + ".png";
 			var filePath = BoardImagesLibrary + fileName;
-			finalImage.Save(filePath, ImageFormat.Jpeg);
+			finalImage.Save(filePath, ImageFormat.Png);
 
 			var board = _boardsRepository.GetBoard(boardItems[0].BoardId);
 			board.BoardImage = fileName;
@@ -69,7 +80,7 @@ namespace DreamBoards.Web.Services
 			return finalImage;
 		}
 
-		private Image GetImageFromUrl(string imageUrl)
+		private Bitmap GetImageFromUrl(string imageUrl)
 		{
 			try
 			{
@@ -90,36 +101,5 @@ namespace DreamBoards.Web.Services
 
 			return null;
 		}
-
-		private static void DownloadRemoteImageFile(string uri, string fileName)
-		{
-			var request = (HttpWebRequest)WebRequest.Create(uri);
-			var response = (HttpWebResponse)request.GetResponse();
-
-			// Check that the remote file was found. The ContentType
-			// check is performed since a request for a non-existent
-			// image file might be redirected to a 404-page, which would
-			// yield the StatusCode "OK", even though the image was not
-			// found.
-			if ((response.StatusCode == HttpStatusCode.OK ||
-				response.StatusCode == HttpStatusCode.Moved ||
-				response.StatusCode == HttpStatusCode.Redirect) &&
-				response.ContentType.StartsWith("image", StringComparison.OrdinalIgnoreCase))
-			{
-				// if the remote file was found, download oit
-				using (var inputStream = response.GetResponseStream())
-				using (var outputStream = File.OpenWrite(fileName))
-				{
-					var buffer = new byte[4096];
-					int bytesRead;
-					do
-					{
-						bytesRead = inputStream.Read(buffer, 0, buffer.Length);
-						outputStream.Write(buffer, 0, bytesRead);
-					} while (bytesRead != 0);
-				}
-			}
-		}
-
 	}
 }

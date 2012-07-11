@@ -74,7 +74,7 @@ namespace DreamBoards.DataAccess.Repositories
 			using (var session = sessionFactory.OpenSession())
 			{
 				var boards = session.QueryOver<BoardDto>()
-					.OrderBy(x => x.CreatedDate).Asc
+					.OrderBy(x => x.CreatedDate).Desc
 					.Take(20)
 					.List<BoardDto>();
 				return boards.ToList();

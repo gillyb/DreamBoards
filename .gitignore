@@ -16,4 +16,5 @@ obj/
 *.DotSettings.user
 
 #User Generated Content
-/**/UGC/*
+Solution/DreamBoards.Web/UGC/board_images/*.png
+Solution/DreamBoards.Web/UGC/items/*.png

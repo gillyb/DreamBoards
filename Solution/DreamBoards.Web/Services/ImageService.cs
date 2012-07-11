@@ -1,22 +1,37 @@
 ﻿using System;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Web;
 using DreamBoards.DataAccess.DataObjects;
+using DreamBoards.DataAccess.Repositories;
 
 namespace DreamBoards.Web.Services
 {
 	public interface IImageService
 	{
+		string BoardImagesLibrary { get; }
+
 		string MakeImageTransparent(string imageUrl);
 		Bitmap SaveBoardAsImage(List<BoardItemDto> boardItems);
 	}
 
 	public class ImageService : IImageService
 	{
+		private readonly IBoardsRepository _boardsRepository;
+
+		public ImageService(IBoardsRepository boardsRepository)
+		{
+			_boardsRepository = boardsRepository;
+		}
+
+		public string BoardImagesLibrary
+		{
+			get { return HttpContext.Current.Server.MapPath("~") + "UGC\\board_image\\"; }
+		}
+
 		public string MakeImageTransparent(string imageUrl)
 		{
 			// TODO: add validation for image file extension
@@ -42,30 +57,44 @@ namespace DreamBoards.Web.Services
 						(float)item.Width, (float)item.Height);
 				}
 			}
-			finalImage.Save("gilly-image.jpg", ImageFormat.Jpeg);
+
+			var fileName = Guid.NewGuid().ToString() + ".jpg";
+			var filePath = BoardImagesLibrary + fileName;
+			finalImage.Save(filePath, ImageFormat.Jpeg);
+
+			var board = _boardsRepository.GetBoard(boardItems[0].BoardId);
+			board.BoardImage = fileName;
+			_boardsRepository.UpdateBoard(board);
+
 			return finalImage;
 		}
 
 		private Image GetImageFromUrl(string imageUrl)
 		{
-			var request = (HttpWebRequest)WebRequest.Create(imageUrl);
-			var response = (HttpWebResponse)request.GetResponse();
-
-			if ((response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Moved ||
-				response.StatusCode == HttpStatusCode.Redirect) && response.ContentType.StartsWith("image", StringComparison.OrdinalIgnoreCase))
+			try
 			{
-				using (var inputStream = response.GetResponseStream())
-					if (inputStream != null)
-						return new Bitmap(inputStream);
+				var request = (HttpWebRequest)WebRequest.Create(imageUrl);
+				var response = (HttpWebResponse)request.GetResponse();
+
+				if ((response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Moved ||
+					response.StatusCode == HttpStatusCode.Redirect) && response.ContentType.StartsWith("image", StringComparison.OrdinalIgnoreCase))
+				{
+					using (var inputStream = response.GetResponseStream())
+						if (inputStream != null)
+							return new Bitmap(inputStream);
+				}
 			}
+			// ReSharper disable EmptyGeneralCatchClause
+			catch { }
+			// ReSharper restore EmptyGeneralCatchClause
 
 			return null;
 		}
 
 		private static void DownloadRemoteImageFile(string uri, string fileName)
 		{
-			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+			var request = (HttpWebRequest)WebRequest.Create(uri);
+			var response = (HttpWebResponse)request.GetResponse();
 
 			// Check that the remote file was found. The ContentType
 			// check is performed since a request for a non-existent
@@ -78,10 +107,10 @@ namespace DreamBoards.Web.Services
 				response.ContentType.StartsWith("image", StringComparison.OrdinalIgnoreCase))
 			{
 				// if the remote file was found, download oit
-				using (Stream inputStream = response.GetResponseStream())
-				using (Stream outputStream = File.OpenWrite(fileName))
+				using (var inputStream = response.GetResponseStream())
+				using (var outputStream = File.OpenWrite(fileName))
 				{
-					byte[] buffer = new byte[4096];
+					var buffer = new byte[4096];
 					int bytesRead;
 					do
 					{

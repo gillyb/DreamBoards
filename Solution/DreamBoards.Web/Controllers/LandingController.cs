@@ -38,7 +38,7 @@ namespace DreamBoards.Web.Controllers
 				var currentUser = _platformProxy.Get<User>("/users/current");
 				viewModel.UserName = currentUser.Name;
 
-				var board = _boardsRepository.LoadBoard(boardId);
+				var board = _boardsRepository.GetBoard(boardId);
 				if (board.UserId != currentUser.Id)
 				{
 					viewModel.BoardId = board.Id;

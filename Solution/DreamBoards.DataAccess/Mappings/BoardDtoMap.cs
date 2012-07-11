@@ -14,6 +14,7 @@ namespace DreamBoards.DataAccess.Mappings
 			Map(x => x.UserId);
 			Map(x => x.Title);
 			Map(x => x.Description);
+			Map(x => x.BoardImage);
 			Map(x => x.CreatedDate);
 		}
 	}

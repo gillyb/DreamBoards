@@ -6,7 +6,7 @@ namespace DreamBoards.DataAccess.Repositories
 {
 	public interface IBoardsRepository
 	{
-		void CreateNewBoard(BoardDto board);
+		int CreateNewBoard(BoardDto board);
 		BoardDto GetBoard(int boardId);
 		void UpdateBoard(BoardDto board);
 		List<BoardDto> GetUsersBoards(long userId);
@@ -22,14 +22,16 @@ namespace DreamBoards.DataAccess.Repositories
 			_sessionFactoryProvider = sessionFactoryProvider;
 		}
 
-		public void CreateNewBoard(BoardDto board)
+		public int CreateNewBoard(BoardDto board)
 		{
+			int newBoardId;
 			using (var sessionFactory = _sessionFactoryProvider.BuildSessionFactory())
 			using (var session = sessionFactory.OpenSession())
 			{
-				session.Save(board);
+				newBoardId = (int)session.Save(board);
 				session.Flush();
 			}
+			return newBoardId;
 		}
 
 		public BoardDto GetBoard(int boardId)

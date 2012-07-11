@@ -59,6 +59,7 @@ $(function() {
 	};
 
 	var loadExistingCanvasImages = function() {
+		if (typeof boardItems == 'undefined') return;
 		if (boardItems.length == 0) return;
 
 		$('.teaser', '.canvas').remove();

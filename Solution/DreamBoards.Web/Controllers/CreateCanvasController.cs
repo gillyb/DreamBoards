@@ -28,14 +28,14 @@ namespace DreamBoards.Web.Controllers
 		public ActionResult CreateNewCanvas(string name, string description)
 		{
 			var currentUser = _apiUsersService.GetCurrentUser();
-			_boardsRepository.CreateNewBoard(new BoardDto
+			var newBoardId = _boardsRepository.CreateNewBoard(new BoardDto
 			{
 				UserId = currentUser.Id,
 				Title = name,
 				Description = description,
 				CreatedDate = DateTime.Now
 			});
-			return Json("OK");
+			return Content(newBoardId.ToString());
 		}
 
 		[HttpPost]

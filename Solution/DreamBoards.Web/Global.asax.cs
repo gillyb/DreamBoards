@@ -8,6 +8,7 @@ using CommonGround;
 using CommonGround.Logging;
 using CommonGround.MvcInvocation;
 using DreamBoards.DataAccess;
+using DreamBoards.DataAccess.Repositories;
 using DreamBoards.Domain.Settings;
 using DreamBoards.Web.Filters;
 using PlatformClient.Platform;
@@ -30,7 +31,13 @@ namespace DreamBoards.Web
 
 			// IOC
 			_container = new CommonContainer();
+
 			_container.RegisterInstance(typeof(ISessionFactoryProvider), new SessionFactoryProvider(ConfigurationManager.AppSettings["DbConnString"]));
+			_container.RegisterTypes(new Dictionary<Type, Type> {
+				{typeof (IBoardsRepository), typeof (BoardsRepository)},
+				{typeof (IBoardItemsRepository), typeof (BoardItemsRepository)}
+			});
+
 			_container.RegisterTypes(new Dictionary<Type, Type> { { typeof(IActionInvoker), typeof(MyCanvasAppActionInvoker) } });
 			
 			var log4NetConfigurator = new Log4NetConfigurator { Container = _container };

@@ -24,8 +24,6 @@ namespace DreamBoards.Web.Controllers
 		[PatternRoute("/landing")]
 		public ActionResult Landing()
 		{
-			var s = _platformProxy.Get<List<long>>("/products/discover/popular");
-
 			var userState = _platformProxy.Get<UserState>("auth/user-state");
 
 			var viewModel = new LandingPageViewModel();
@@ -35,19 +33,6 @@ namespace DreamBoards.Web.Controllers
 				var currentUser = _platformProxy.Get<User>("/users/current");
 				viewModel.UserName = currentUser.Name;
 			}
-
-			var wantedTagsIds = new List<long>
-			           	{
-			           		220057L,
-			           		220015L
-			           	};
-
-			var tagList = new KeyValuePair<string, object>("ids",wantedTagsIds);
-			var followedTags = _platformProxy.Get<List<Tag>>("/tags/get", tagList);
-
-			viewModel.LoginRedirectUrl = _platformRoutes.Login;
-			viewModel.Tags = followedTags;
-			viewModel.UserState = userState;
 
 			return View(viewModel);
 		}

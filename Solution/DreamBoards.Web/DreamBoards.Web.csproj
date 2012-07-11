@@ -193,6 +193,7 @@
     <Content Include="static\js\canvas-page.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="static\js\landing-page.js" />
     <Content Include="static\js\jquery\jquery-1.7.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

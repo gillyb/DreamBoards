@@ -7,51 +7,11 @@
 	ViewBag.Title = "Index";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>
-	Landing page</h2>
-<div>
-	<p>
-		Here we show the user how nice our app is really is.</p>
-</div>
-<p>Your status is:@Model.UserState.ToString() </p>
 
-@if (Model.UserState == UserState.Authenticated || Model.UserState == UserState.Authorized)
-{
-	
-	<span>Hello, @Model.UserName</span><br />
-	
-	
-}
-<span>here are some tags from the website </span>
-<ul>
-	@foreach (Tag tag in Model.Tags)
- {
-		<li>@tag.Name</li> 
- }
-</ul>
-@if (Model.UserState != UserState.Authorized)
-{
-	<p>
-		<button class="SignUpAction">Sign up for this application</button></p>	
-}
-else
-{
-	<p>You already installed this app</p>
-	<p>You can now go to:</p>
-	<p>
-		<a href="http://ohio.local/app/1001/r/" target="_top">Regular Canvas</a> |
-		<a href="http://ohio.local/app/1001/f/" target="_top">Full Canvas</a> |
-		@Html.ActionLink("Create a new app wall", "NewAppWallForm", "AppWall") 
-	</p>
-}
+<h2>Landing page</h2>
 
-
-
-<script type="text/javascript">
-	$(function () {
-		$(".SignUpAction").click(function () {
-			window.parent.location.href = "@Model.LoginRedirectUrl";
-		});
-	});
-	
-</script>
+Create a new board: <br/>
+Name<input type="text" id="board-name"/><br/>
+Description<input type="text" id="board-description"/><br/>
+		   
+<span class="create-board action-buttons">Create</span>

@@ -21,7 +21,7 @@ $(function() {
 			};
 			items.push(item);
 		});
-		// TODO: send this array to some server endpoint to save the dreamboard items
+		
 		var data = { boardItems: items };
 		$.ajax({
 			url: '/-/canvas/save',

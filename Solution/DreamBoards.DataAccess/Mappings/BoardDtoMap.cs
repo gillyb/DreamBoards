@@ -7,7 +7,7 @@ namespace DreamBoards.DataAccess.Mappings
 	{
 		public BoardDtoMap()
 		{
-			Table("dreamboards");
+			Table("boards");
 			Not.LazyLoad();
 			
 			Id(x => x.Id);

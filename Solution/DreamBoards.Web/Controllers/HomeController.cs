@@ -53,11 +53,9 @@ namespace DreamBoards.Web.Controllers
 		[PatternRoute("/test")]
 		public ActionResult Test()
 		{
-
-
 			return View();
 		}
-
+		
 		[PatternRoute("/test2")]
 		public ActionResult GetImageTest(string url)
 		{

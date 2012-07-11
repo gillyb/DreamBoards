@@ -62,6 +62,7 @@
     <Compile Include="Settings\IApplicationSettings.cs" />
     <Compile Include="Settings\IPlatformSettings.cs" />
     <Compile Include="Tags\Tag.cs" />
+    <Compile Include="User\ApiUsersService.cs" />
     <Compile Include="User\User.cs" />
     <Compile Include="User\UserState.cs" />
   </ItemGroup>

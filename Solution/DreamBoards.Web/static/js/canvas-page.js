@@ -41,8 +41,7 @@ $(function() {
 					.css(ui.position)
 					.css('position', 'absolute')
 					.draggable({
-						helper: 'original',
-						revert: 'invalid'
+						helper: 'original'
 					})
 					.find('.thumbnail').transparent().resizable();
 
@@ -73,8 +72,7 @@ $(function() {
 					left: item.PosX
 				})
 				.draggable({
-					helper: 'original',
-					revert: 'invalid'
+					helper: 'original'
 				})
 				.find('.thumbnail')
 				.css({

@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AppWalls\AppWall.cs" />
     <Compile Include="AppWalls\IAppWallServices.cs" />
+    <Compile Include="Newsfeed\ApiNewsfeedService.cs" />
     <Compile Include="Products\ApiProductsService.cs" />
     <Compile Include="PlatformApiServices\IPlatformRoutes.cs" />
     <Compile Include="PlatformApiServices\PlatformConfiguration.cs" />

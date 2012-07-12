@@ -14,7 +14,7 @@ namespace DreamBoards.Web.Services
 		string BoardImagesLibrary { get; }
 
 		string MakeImageTransparent(string imageUrl);
-		Bitmap SaveBoardAsImage(List<BoardItemDto> boardItems);
+		void SaveBoardAsImage(List<BoardItemDto> boardItems);
 	}
 
 	public class ImageService : IImageService
@@ -55,29 +55,29 @@ namespace DreamBoards.Web.Services
 			return fileName;
 		}
 
-		public Bitmap SaveBoardAsImage(List<BoardItemDto> boardItems)
+		public void SaveBoardAsImage(List<BoardItemDto> boardItems)
 		{
-			var finalImage = new Bitmap(600, 600);
-			using (var finalGraphics = Graphics.FromImage(finalImage))
+			using (var finalImage = new Bitmap(600, 600))
 			{
-				finalGraphics.Clear(Color.White);
-				foreach (var item in boardItems)
+				using (var finalGraphics = Graphics.FromImage(finalImage))
 				{
-					var itemImage = GetImageFromUrl(item.ImageUrl);
-					finalGraphics.DrawImage(itemImage, (float)item.PosX, (float)item.PosY,
-						(float)item.Width, (float)item.Height);
+					finalGraphics.Clear(Color.White);
+					foreach (var item in boardItems)
+					{
+						var itemImage = GetImageFromUrl(item.ImageUrl);
+						finalGraphics.DrawImage(itemImage, (float) item.PosX, (float) item.PosY,
+						                        (float) item.Width, (float) item.Height);
+					}
 				}
+
+				var fileName = Guid.NewGuid().ToString() + ".png";
+				var filePath = BoardImagesLibrary + fileName;
+				finalImage.Save(filePath, ImageFormat.Png);
+
+				var board = _boardsRepository.GetBoard(boardItems[0].BoardId);
+				board.BoardImage = fileName;
+				_boardsRepository.UpdateBoard(board);
 			}
-
-			var fileName = Guid.NewGuid().ToString() + ".png";
-			var filePath = BoardImagesLibrary + fileName;
-			finalImage.Save(filePath, ImageFormat.Png);
-
-			var board = _boardsRepository.GetBoard(boardItems[0].BoardId);
-			board.BoardImage = fileName;
-			_boardsRepository.UpdateBoard(board);
-
-			return finalImage;
 		}
 
 		private Bitmap GetImageFromUrl(string imageUrl)

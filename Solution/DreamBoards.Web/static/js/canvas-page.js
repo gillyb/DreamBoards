@@ -135,8 +135,7 @@ $(function() {
 	loadProductsFromBoard();
 
 	if (readOnlyMode()) {
-		$('.action-link.save').hide();
-		$('.action-link.save-as-image').hide();
+		$('.action-buttons').hide();
 	}
 
 });

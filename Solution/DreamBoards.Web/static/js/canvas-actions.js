@@ -56,6 +56,27 @@ $(function() {
 		});
 	});
 
+	$('.action-link.brag').click(function() {
+		var boardId = $('.canvas').data('board-id');
+		$.ajax({
+			url: '/-/canvas/brag',
+			type: 'POST',
+			data: JSON.stringify({
+				boardId: boardId,
+				boardTitle: $('#board-name').val(),
+				boardItems: getItemsArray(boardId)
+			}),
+			contentType: 'application/json; charset=utf-8',
+			success: function(data) {
+				// TODO: display some nice error message
+				debugger;
+			},
+			error: function(ex) {
+				debugger;
+			}
+		});
+	});
+
 	var getItemsArray = function(boardId) {
 		var items = [];
 		$('.canvas .thumbnail-container').each(function(index, element) {

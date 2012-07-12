@@ -4,6 +4,7 @@ $(function() {
 	$('.action-link.save').click(function() {
 		var id = $('.canvas').data('board-id');
 
+		showLoader();
 		if (typeof id == 'undefined' || id == 0) {
 			if ($('#board-name').val().trim() == '') {
 				alert('You must enter a name for the board!');
@@ -20,6 +21,7 @@ $(function() {
 					$('.canvas').data('board-id', id);
 				},
 				error: function() {
+					hideLoader();
 					debugger;
 				}
 			});
@@ -36,11 +38,13 @@ $(function() {
 			},
 			error: function(xhr) {
 				debugger;
-			}
+			},
+			complete: hideLoader
 		});
 	});
 
 	$('.action-link.save-as-image').click(function() {
+		showLoader();
 		var id = $('.canvas').data('board-id');
 		$.ajax({
 			url: '/-/canvas/save-as-image',
@@ -52,11 +56,13 @@ $(function() {
 			},
 			error: function() {
 				debugger;
-			}
+			},
+			complete: hideLoader
 		});
 	});
 
 	$('.action-link.brag').click(function() {
+		showLoader();
 		var boardId = $('.canvas').data('board-id');
 		$.ajax({
 			url: '/-/canvas/brag',
@@ -73,7 +79,8 @@ $(function() {
 			},
 			error: function(ex) {
 				debugger;
-			}
+			},
+			complete: hideLoader
 		});
 	});
 
@@ -96,6 +103,15 @@ $(function() {
 			});
 		});
 		return items;
+	};
+
+	var showLoader = function() {
+		$('.canvas').addClass('loading');
+		$('.header .loader').css('visibility', 'visible');
+	};
+	var hideLoader = function() {
+		$('.canvas').removeClass('loading');
+		$('.header .loader').css('visibility', 'hidden');
 	};
 
 });

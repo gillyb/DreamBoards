@@ -43,8 +43,13 @@ namespace DreamBoards.Web.Services
 			// TODO: add some kind of variety of colors for this... (not just white, make it white -> light grey)
 			for (var i = 0; i < image.Width; i++)
 				for (var j = 0; j < image.Height; j++)
-					if (image.GetPixel(i,j) == bgColor)
-						image.SetPixel(i,j,Color.Transparent);
+				{
+					var pixelColor = image.GetPixel(i, j);
+					if (ColorDistance(pixelColor, bgColor) <= 80)
+						image.SetPixel(i, j, Color.Transparent);
+					//if (image.GetPixel(i, j) == bgColor)
+					//    image.SetPixel(i, j, Color.Transparent);
+				}
 
 			image.MakeTransparent(Color.Transparent);
 
@@ -55,9 +60,16 @@ namespace DreamBoards.Web.Services
 			return fileName;
 		}
 
+		private int ColorDistance(Color pixelColor, Color bgColor)
+		{
+			return Math.Abs(pixelColor.R - bgColor.R) +
+			       Math.Abs(pixelColor.G - bgColor.G) +
+			       Math.Abs(pixelColor.B - bgColor.B);
+		}
+
 		public void SaveBoardAsImage(List<BoardItemDto> boardItems)
 		{
-			using (var finalImage = new Bitmap(600, 600))
+			using (var finalImage = new Bitmap(656, 600))
 			{
 				using (var finalGraphics = Graphics.FromImage(finalImage))
 				{

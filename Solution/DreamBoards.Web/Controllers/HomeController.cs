@@ -91,31 +91,40 @@ namespace DreamBoards.Web.Controllers
 
     	private static List<KeyValuePair<string, int>> GetCategoryList()
     	{
-			// TagId's from production - i need to find the matching category id's...
-			//return new List<KeyValuePair<string, int>> { // TODO: these are actually tagid's - i need to find there matching category id
-			//    new KeyValuePair<string, int>("Dresses", 1077153),
-			//    new KeyValuePair<string, int>("Swimwear", 1077162),
-			//    new KeyValuePair<string, int>("Tops", 1077163),
-			//    new KeyValuePair<string, int>("Jeans", 1077155),
-			//    new KeyValuePair<string, int>("Skirts", 1077159),
-			//    new KeyValuePair<string, int>("Necklaces", 1079382),
-			//    new KeyValuePair<string, int>("Earrings", 1079383),
-			//    new KeyValuePair<string, int>("Jackets", 1077154),
-			//    new KeyValuePair<string, int>("Various", 2658148),
-			//    new KeyValuePair<string, int>("Sunglasses", 1077029) };
+			return new List<KeyValuePair<string, int>> {
+			    new KeyValuePair<string, int>("Dresses", 1702),
+			    new KeyValuePair<string, int>("Swimwear", 1250),
+			    new KeyValuePair<string, int>("Tops", 1283),
+			    new KeyValuePair<string, int>("Jeans", 1310),
+			    new KeyValuePair<string, int>("Skirts", 1405),
+			    new KeyValuePair<string, int>("Necklaces", 1478),
+			    new KeyValuePair<string, int>("Earrings", 1352),
+			    new KeyValuePair<string, int>("Jackets", 11565),
+			    new KeyValuePair<string, int>("Various", 11762),
+			    new KeyValuePair<string, int>("Sunglasses", 11682),
+				new KeyValuePair<string, int>("Sunglasses", 1294),
+				new KeyValuePair<string, int>("Sunglasses", 1296),
+				new KeyValuePair<string, int>("Sunglasses", 1299),
+				new KeyValuePair<string, int>("Sunglasses", 1308),
+				new KeyValuePair<string, int>("Sunglasses", 1309),
+				new KeyValuePair<string, int>("Sunglasses", 1316),
+				new KeyValuePair<string, int>("Sunglasses", 1350),
+				new KeyValuePair<string, int>("Sunglasses", 1352),
+				new KeyValuePair<string, int>("Sunglasses", 1373),
+				new KeyValuePair<string, int>("Sunglasses", 1391) };
 
 			// Shavrir Categories
-			return new List<KeyValuePair<string, int>> {
-    			new KeyValuePair<string, int>("Dresses", 1002),
-    			new KeyValuePair<string, int>("Swimwear", 1005),
-    			new KeyValuePair<string, int>("Tops", 1010),
-    			new KeyValuePair<string, int>("Jeans", 1014),
-    			new KeyValuePair<string, int>("Skirts", 1015),
-    			new KeyValuePair<string, int>("Necklaces", 1016),
-    			new KeyValuePair<string, int>("Earrings", 1018),
-    			new KeyValuePair<string, int>("Jackets", 1019),
-    			new KeyValuePair<string, int>("Various", 1020),
-    			new KeyValuePair<string, int>("Sunglasses", 1021) };
+			//return new List<KeyValuePair<string, int>> {
+			//    new KeyValuePair<string, int>("Dresses", 1002),
+			//    new KeyValuePair<string, int>("Swimwear", 1005),
+			//    new KeyValuePair<string, int>("Tops", 1010),
+			//    new KeyValuePair<string, int>("Jeans", 1014),
+			//    new KeyValuePair<string, int>("Skirts", 1015),
+			//    new KeyValuePair<string, int>("Necklaces", 1016),
+			//    new KeyValuePair<string, int>("Earrings", 1018),
+			//    new KeyValuePair<string, int>("Jackets", 1019),
+			//    new KeyValuePair<string, int>("Various", 1020),
+			//    new KeyValuePair<string, int>("Sunglasses", 1021) };
     	}
 
     	[PatternRoute("/test2")]

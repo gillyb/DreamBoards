@@ -22,4 +22,8 @@ select { border: solid 1px grey;}
 
 
 .thumbnail.loading { opacity: 0.5; }
-.thumbnail-container .loader { background-image: url(../../static/img/loader.gif);position: absolute;bottom: 50px;right: 50px;width: 64px;height: 64px;display: inline-block; }
+.thumbnail-container .loader { background-image: url(../../static/img/ajax-loader.gif);position: absolute;bottom: 50px;right: 50px;width: 64px;height: 64px;display: inline-block; }
+
+.canvas.loading { opacity: 0.5; }
+
+.header .loader { display: inline-block;width: 55px;height: 55px;background-image: url("../../static/img/ajax-loader.gif"); }

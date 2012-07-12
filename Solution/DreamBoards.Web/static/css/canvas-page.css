@@ -4,7 +4,7 @@
 
 /* left section */
 .logo { background-image: url("../../static/img/logo.png");display: inline-block;width: 255px;height: 46px; }
-#canvas-page .header { position: relative;margin-bottom: 10px;height: 50px; }
+#canvas-page .header { position: relative;margin-bottom: 10px;height: 55px; }
 .header .action-buttons {width: 268px; color: #767676;position: absolute;bottom: 0;right: 0; }
 .canvas { height: 600px;border:dashed 2px #C60050;position: relative;background-color: white;overflow: hidden;}
 .canvas .teaser { color: #AAAAAA;font-size: 30px;margin-top: 200px;text-align: center; }

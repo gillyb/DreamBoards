@@ -164,6 +164,7 @@
     </Content>
     <Content Include="static\img\ajax-loader.gif" />
     <Content Include="static\img\loader.gif" />
+    <Content Include="static\img\loading.gif" />
     <Content Include="static\img\logo.png" />
     <Content Include="static\js\canvas-actions.js" />
     <Content Include="static\js\canvas-page.js">

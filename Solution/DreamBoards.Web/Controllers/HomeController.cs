@@ -22,7 +22,7 @@ namespace DreamBoards.Web.Controllers
     	private readonly IBoardsRepository _boardsRepository;
     	private readonly IBoardItemsRepository _boardItemsRepository;
 
-		public HomeController(IPlatformProxy platformProxy, IApplicationSettings applicationSettings, IPlatformSettings platformSettings, IApiProductsService apiProductsService, IImageService imageService, IBoardsRepository boardsRepository, IBoardItemsRepository boardItemsRepository)
+    	public HomeController(IPlatformProxy platformProxy, IApplicationSettings applicationSettings, IPlatformSettings platformSettings, IApiProductsService apiProductsService, IImageService imageService, IBoardsRepository boardsRepository, IBoardItemsRepository boardItemsRepository)
     	{
     		_platformProxy = platformProxy;
 			_applicationSettings = applicationSettings;
@@ -62,22 +62,24 @@ namespace DreamBoards.Web.Controllers
 			var userState = _platformProxy.Get<UserState>("auth/user-state");
 
 			var viewModel = new CanvasPageViewModel();
+			viewModel.HostDomain = _platformSettings.PlatformHomePage;
 
+			BoardDto board = null;
 			if (userState == UserState.Authenticated || userState == UserState.Authorized)
 			{
 				viewModel.User = _platformProxy.Get<User>("/users/current");
 
 				if (viewModel.User != null)
 				{
-					var board = _boardsRepository.GetBoard(boardId);
+					board = _boardsRepository.GetBoard(boardId);
 					if (board != null)
 					{
-						viewModel.IsOwner = (board.UserId == viewModel.User.Id);
 						viewModel.Board = board;
 						viewModel.BoardItems = _boardItemsRepository.GetBoardItems(board.Id);
 					}
 				}
 			}
+			viewModel.ReadOnly = (board != null && board.UserId != viewModel.User.Id);
 
 			if (viewModel.BoardItems == null)
 				viewModel.BoardItems = new List<BoardItemDto>();

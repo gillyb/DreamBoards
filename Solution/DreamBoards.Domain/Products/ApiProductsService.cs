@@ -6,6 +6,7 @@ namespace DreamBoards.Domain.Products
 	public interface IApiProductsService
 	{
 		List<Product> DiscoverByCategoryId(long categoryId);
+		List<Product> GetProducts(List<long> productIds);
 	}
 
 	public class ApiProductsService : IApiProductsService
@@ -26,10 +27,18 @@ namespace DreamBoards.Domain.Products
 
 			var productIds = _platformProxy.Get<List<long>>("/products/discover/by-category-ids", discoverCategoryParams);
 
-			var getProductsParamas = new[] {
+			var products = GetProducts(productIds);
+
+			return products;
+		}
+
+		public List<Product> GetProducts(List<long> productIds)
+		{
+			var getProductsParams = new[] {
 				new KeyValuePair<string, object>("ids", productIds)
 			};
-			var products = _platformProxy.Get<List<Product>>("/products/get", getProductsParamas);
+
+			var products = _platformProxy.Get<List<Product>>("/products/get", getProductsParams);
 
 			return products;
 		}

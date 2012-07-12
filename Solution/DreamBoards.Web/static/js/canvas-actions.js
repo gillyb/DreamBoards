@@ -4,7 +4,7 @@ $(function() {
 	$('.action-link.save').click(function() {
 		var id = $('.canvas').data('board-id');
 
-		if (typeof id == 'undefined') {
+		if (typeof id == 'undefined' || id == 0) {
 			if ($('#board-name').val().trim() == '') {
 				alert('You must enter a name for the board!');
 				return;
@@ -63,7 +63,7 @@ $(function() {
 			var itemImage = elem.find('.thumbnail');
 			items.push({
 				boardId: boardId,
-				ProductId: 0,
+				ProductId: elem.data('product-id'),
 				CatalogId: 0,
 				ImageUrl: itemImage.attr('src'),
 				PosX: Math.round(elem.css('left').replace('px', '')),

@@ -4,6 +4,7 @@
     ViewBag.Title = "DreamBoards | Create your own DreamBoard";
 	ViewBag.BodyId = "canvas-page";
 	ViewBag.BodyClass = "";
+	ViewBag.HostDomain = Model.HostDomain;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,19 +17,19 @@
 	</div>
 	@{
 		var boardId = "";
-		var editOnly = "";
+		var readOnly = "";
 		if (Model.Board != null) { boardId = "data-board-id=" + @Model.Board.Id; } else { boardId = ""; }
-		if (!Model.IsOwner) { editOnly = "data-edit-only=true"; }
+		if (Model.ReadOnly) { readOnly = "data-read-only=true"; }
 	}
-	<div class="canvas" @boardId @editOnly>
+	<div class="canvas" @boardId @readOnly>
 		<div class="teaser">Drag products here to get started...</div>
 	</div>
 	
 	<div class="basic-details">
 		<div class="label float">Name</div>
-		<div class="input float"><input type="text" id="board-name" value="@Model.Board.Title"></div>
+		<div class="input float"><input type="text" id="board-name" value="@(Model.Board != null ? Model.Board.Title : "")"></div>
 		<div class="label float">Description</div>
-		<div class="input float"><textarea id="board-description">@Model.Board.Description</textarea></div>
+		<div class="input float"><textarea id="board-description">@(Model.Board != null ? Model.Board.Description : "")</textarea></div>
 		<div class="breaker"></div>
 	</div>
 </div>
@@ -36,19 +37,30 @@
 <div class="right-section float">
 	<div class="header"></div>
 	<div class="browse-section round-corners">
-		<div class="category-browser">
-			SELECT CATEGORY : 
-			<select id="category-dropdown">
-				@foreach (var category in Model.Cateogories)
-				{
-					<option value="@category.Value">@category.Key</option>
-				}
-			</select>
-		</div>
 		
+		<div class="category-browser">
+			@{
+				if (!Model.ReadOnly)
+				{
+					@: SELECT CATEGORY : 
+					<select id="category-dropdown">
+						@foreach (var category in Model.Cateogories)
+						{
+							<option value="@category.Value">@category.Key</option>
+						}
+					</select>
+				}
+				else
+				{
+					@: PRODUCTS FROM THIS DREAMBOARD :
+				}
+			}
+		</div>
+
 		<div class="items-container">
 			
 		</div>
+
 	</div>
 </div>
 

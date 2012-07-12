@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
 using CommonGround.MvcInvocation;
@@ -49,6 +50,14 @@ namespace DreamBoards.Web.Controllers
 				.Select(x => new {productId = x.Id, imageUrl = x.ImageUrl}).ToList();
 
 			return Json(clientProductInfo);
+		}
+
+		[HttpPost]
+		[PatternRoute("/-/platform/get-products")]
+		public ActionResult GetProducts(List<long> productIds)
+		{
+			var products = _apiProductsService.GetProducts(productIds);
+			return Json(products);
 		}
 	}
 }

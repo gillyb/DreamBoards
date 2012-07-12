@@ -16,6 +16,8 @@
 .items-container { padding-left: 26px; }
 .thumbnail-container { border: solid 1px grey;padding: 0px;display: inline-block;font-size: 0;margin-right: 10px;margin-bottom: 10px;}
 .thumbnail { width: 90px;height: 90px; }
+.product-thumbnail { display: inline-block;margin-right: 10px;margin-bottom: 10px;}
+.product-thumbnail img { width: 90px;height: 90px;cursor: pointer;}
 
 /* basic details form */
 .basic-details { padding: 5px; }

@@ -11,10 +11,15 @@ $(function() {
 	// bind 'select category' drop down to api
 	$('#category-dropdown').change(function() {
 		// TODO: add a nice preloader here...
+		updateItemsContainer($(this));
+	});
+
+	var updateItemsContainer = function(dropDown) {
+		if (readOnlyMode()) return;
 		$.ajax({
 			url: '/-/platform/get-products-for-category',
 			type: 'POST',
-			data: { categoryId: $(this).val() },
+			data: { categoryId: dropDown.val() },
 			success: function(data) {
 				$('.items-container').html('');
 				$(data).each(function(index, element) {
@@ -26,7 +31,7 @@ $(function() {
 				// TODO: display some nice error message
 			}
 		});
-	});
+	};
 
 	var wrapItemForToolBox = function(productId, imageUrl) {
 		var item = $('<div/>').addClass('thumbnail-container').data('product-id', productId)
@@ -133,6 +138,7 @@ $(function() {
 	makeToolboxDraggable();
 	loadExistingCanvasImages();
 	loadProductsFromBoard();
+	updateItemsContainer($('#category-dropdown'));
 
 	if (readOnlyMode()) {
 		$('.action-buttons').hide();

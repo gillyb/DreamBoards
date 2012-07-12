@@ -34,7 +34,7 @@ $(function() {
 			data: JSON.stringify({ boardId: id, boardItems: getItemsArray(id) }),
 			contentType: 'application/json; charset=utf-8',
 			success: function(data) {
-				debugger;
+				//debugger;
 			},
 			error: function(xhr) {
 				debugger;
@@ -52,7 +52,7 @@ $(function() {
 			data: JSON.stringify({ boardItems: getItemsArray(id) }),
 			contentType: 'application/json; charset=utf-8',
 			success: function() {
-				debugger;
+				//debugger;
 			},
 			error: function() {
 				debugger;
@@ -74,10 +74,10 @@ $(function() {
 			}),
 			contentType: 'application/json; charset=utf-8',
 			success: function(data) {
-				// TODO: display some nice error message
-				debugger;
+				//debugger;
 			},
 			error: function(ex) {
+				// TODO: display some nice error message
 				debugger;
 			},
 			complete: hideLoader

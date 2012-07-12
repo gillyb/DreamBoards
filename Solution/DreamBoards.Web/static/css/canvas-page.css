@@ -5,6 +5,7 @@
 /* left section */
 .logo { background-image: url("../../static/img/logo.png");display: inline-block;width: 255px;height: 46px; }
 #canvas-page .header { position: relative;margin-bottom: 10px;height: 55px; }
+#canvas-page .logo { cursor: pointer;}
 .header .action-buttons {width: 268px; color: #767676;position: absolute;bottom: 0;right: 0; }
 .canvas { height: 600px;border:dashed 2px #C60050;position: relative;background-color: white;overflow: hidden;}
 .canvas .teaser { color: #AAAAAA;font-size: 30px;margin-top: 200px;text-align: center; }
@@ -13,7 +14,9 @@
 /* right section */
 .browse-section { background-color: #EDEDED;width: 450px;height: 600px; }
 .category-browser { height: 50px;margin-left: 30px;padding-top: 20px;}
-.items-container { padding-left: 20px;overflow-y: scroll;height: 500px; }
+.items-container { padding-left: 15px;overflow-y: scroll;height: 500px; }
+.items-container .product-thumbnail { padding: 2px; }
+.items-container .product-thumbnail.selected { border: dashed 2px #C60050;padding: 0; }
 .thumbnail-container { border: solid 1px grey;padding: 0px;display: inline-block;font-size: 0;margin-right: 10px;margin-bottom: 10px;}
 .thumbnail { width: 90px;height: 90px; }
 .product-thumbnail { display: inline-block;margin-right: 10px;margin-bottom: 10px;}

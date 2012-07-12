@@ -8,6 +8,10 @@ $(function() {
 		return $('.canvas').data('read-only');
 	};
 
+	$('.logo').click(function() {
+		window.location.href = '/';
+	});
+
 	// bind 'select category' drop down to api
 	$('#category-dropdown').change(function() {
 		// TODO: add a nice preloader here...
@@ -121,6 +125,7 @@ $(function() {
 			success: function(products) {
 				$(products).each(function(pIndex, pProduct) {
 					$('<div/>').addClass('product-thumbnail float')
+						.data('product-id', pProduct.id)
 						.append($('<img>').attr('src', pProduct.imageUrl))
 						.appendTo($('.items-container'))
 						.click(function() {
@@ -134,11 +139,28 @@ $(function() {
 		});
 	};
 
+	var makeCanvasImagesHoverable = function() {
+		if (!readOnlyMode()) return;
+		$('.canvas .thumbnail-container').each(function(index, element) {
+			$(element).mouseenter(function() {
+				var canvasItem = $(this);
+				$('.items-container .product-thumbnail').each(function(i, e) {
+					if ($(e).data('product-id') == canvasItem.data('product-id') && typeof ($(e).data('product-id')) != 'undefined') {
+						$(this).addClass('selected');
+					}
+				});
+			}).mouseleave(function() {
+				$('.items-container .product-thumbnail').removeClass('selected');
+			});
+		});
+	};
+
 	makeCanvasDroppable();
 	makeToolboxDraggable();
 	loadExistingCanvasImages();
 	loadProductsFromBoard();
 	updateItemsContainer($('#category-dropdown'));
+	makeCanvasImagesHoverable();
 
 	if (readOnlyMode()) {
 		$('.action-buttons').hide();

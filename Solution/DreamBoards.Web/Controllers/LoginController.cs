@@ -14,20 +14,29 @@ namespace DreamBoards.Web.Controllers
 		private readonly IPlatformProxy _platformProxy;
 		private readonly IPlatformRoutes _platformRoutes;
 		private readonly IApplicationSettings _applicationSettings;
+		private readonly IPlatformSettings _VariableName;
 		private readonly IAppWallServices _appWallServices;
+		private readonly IPlatformSettings _platformSettings;
 
-		public LoginController(IPlatformProxy platformProxy,IPlatformRoutes platformRoutes,IApplicationSettings applicationSettings, IAppWallServices appWallServices)
+		public LoginController(IPlatformProxy platformProxy,IPlatformRoutes platformRoutes,IApplicationSettings applicationSettings, IAppWallServices appWallServices, IPlatformSettings platformSettings)
 		{
 			_platformProxy = platformProxy;
 			_platformRoutes = platformRoutes;
 			_applicationSettings = applicationSettings;
 			_appWallServices = appWallServices;
+			_platformSettings = platformSettings;
 		}
 
 		[PatternRoute("/post-login")]
 		public ActionResult PostLogin()
 		{
-			return View();
+			InstallAppForUser();
+
+			var model = new PostLoginViewModel {
+				RegularCanvasUrl = string.Format("http:{0}/{1}/r", _platformSettings.PlatformPagesBaseUrl, _applicationSettings.AppId)
+			};
+
+			return View(model);
 		}
 
 		[PatternRoute("/login")]

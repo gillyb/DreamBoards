@@ -15,8 +15,8 @@
 	{
 		public string PlatformApiBaseUrl { get { return "http://galileoplatform.shopyourway.com"; } }
 		public string PlatformSecureApiBaseUrl { get { return "http://galileoplatform.shopyourway.com"; } }
-		public string PlatformPagesBaseUrl { get { return "//ohio.local/app/"; } }
-		public string PlatformHomePage { get { return "http://ohio.local"; } }
+		public string PlatformPagesBaseUrl { get { return "//galileo.shopyourway.com/app"; } }
+		public string PlatformHomePage { get { return "http://galileo.shopyourway.com"; } }
 
 		//public string PlatformApiBaseUrl { get { return "http://shavrirps.shopyourway.com:88"; } }
 		//public string PlatformSecureApiBaseUrl { get { return "http://shavrirps.shopyourway.com:88"; } }

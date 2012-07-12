@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using CommonGround.MvcInvocation;
 using DreamBoards.DataAccess.Repositories;
 using DreamBoards.Domain.PlatformApiServices;
+using DreamBoards.Domain.Settings;
 using DreamBoards.Domain.User;
 using DreamBoards.Web.ViewModels;
 using PlatformClient.Platform;
@@ -16,19 +17,23 @@ namespace DreamBoards.Web.Controllers
 		private readonly IPlatformRoutes _platformRoutes;
 		private readonly IBoardsRepository _boardsRepository;
 		private readonly IBoardItemsRepository _boardItemsRepository;
+		private readonly IPlatformSettings _platformSettings;
+		private readonly IApplicationSettings _applicationSettings;
 
-		public LandingController(IPlatformProxy platformProxy,IPlatformRoutes platformRoutes, IBoardsRepository boardsRepository, IBoardItemsRepository boardItemsRepository)
+		public LandingController(IPlatformProxy platformProxy,IPlatformRoutes platformRoutes, IBoardsRepository boardsRepository, IBoardItemsRepository boardItemsRepository, IPlatformSettings platformSettings, IApplicationSettings applicationSettings)
     	{
     		_platformProxy = platformProxy;
     		_platformRoutes = platformRoutes;
 			_boardsRepository = boardsRepository;
 			_boardItemsRepository = boardItemsRepository;
+			_platformSettings = platformSettings;
+			_applicationSettings = applicationSettings;
     	}
 
 		[PatternRoute("/boards")]
 		public ActionResult Boards(int boardId)
 		{
-			var model = new LandingPageViewModel();
+			var model = new BoardsPageViewModel();
 			var userState = _platformProxy.Get<UserState>("auth/user-state");
 			if (userState == UserState.Authenticated || userState == UserState.Authorized)
 			{
@@ -45,7 +50,10 @@ namespace DreamBoards.Web.Controllers
 		[PatternRoute("/landing")]
 		public ActionResult Landing()
 		{
-			return View();
+			var landingPageViewModel = new LandingPageViewModel {
+				SignInUrl = string.Format("https:{0}/{1}/login", _platformSettings.PlatformPagesBaseUrl, _applicationSettings.AppId)
+			};
+			return View(landingPageViewModel);
 		}
     }
 }

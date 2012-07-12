@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using CommonGround.MvcInvocation;
 using DreamBoards.DataAccess.DataObjects;
@@ -34,30 +35,24 @@ namespace DreamBoards.Web.Controllers
     	}
 
 		[PatternRoute("/")]
-        public ActionResult RegularCanvas()
+        public ActionResult Boards()
 		{
-			HomeViewModel viewModel = new HomeViewModel
-			                          	{
-			                          		FullCanvasURL =
-			                          			string.Format("{0}{1}/f/", _platformSettings.PlatformPagesBaseUrl,
-			                          			              _applicationSettings.AppId),
-			                          		RegularCanvasURL =
-			                          			string.Format("{0}{1}/r/", _platformSettings.PlatformPagesBaseUrl,
-			                          			              _applicationSettings.AppId),
-											PlatformHomePage = _platformSettings.PlatformHomePage
-			                          	};
+			var model = new BoardsPageViewModel();
+			var userState = _platformProxy.Get<UserState>("auth/user-state");
+			if (userState == UserState.Authenticated || userState == UserState.Authorized)
+			{
+				model.User = _platformProxy.Get<User>("/users/current");
+				model.UsersBoards = _boardsRepository.GetUsersBoards(model.User.Id);
+			}
 
-			var productsParams = new[] {
-			    new KeyValuePair<string, object>("categoryIds", new[] { 1005L })
-			};
+			model.PopularBoards = _boardsRepository.GetPopularBoards()
+				.Where(x => !string.IsNullOrEmpty(x.BoardImage)).ToList();
 
-			var products = _apiProductsService.DiscoverByCategoryId(1005);
-			
-            return View(viewModel);
+			return View(model);
         }
 
-		[PatternRoute("/test")]
-		public ActionResult Test(int boardId)
+		[PatternRoute("/canvas-page")]
+		public ActionResult CanvasPage(int boardId)
 		{
 			var userState = _platformProxy.Get<UserState>("auth/user-state");
 

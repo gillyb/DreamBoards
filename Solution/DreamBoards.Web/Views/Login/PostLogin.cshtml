@@ -1,9 +1,11 @@
-﻿@{
+﻿@model DreamBoards.Web.ViewModels.PostLoginViewModel
+@{
     ViewBag.Title = "PostLogin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Post Login Page</h2>
-<p>@Html.ActionLink("Install application","InstallApp","Login")</p>
-
-
+<script language="javascript" type="text/javascript">
+	$(function() {
+		window.top.location.href = '';
+	});
+</script>

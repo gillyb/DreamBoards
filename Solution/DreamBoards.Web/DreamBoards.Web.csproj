@@ -102,8 +102,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ImageService.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
-    <Compile Include="ViewModels\LandingPageViewModel.cs" />
+    <Compile Include="ViewModels\BoardsPageViewModel.cs" />
     <Compile Include="ViewModels\InstallAppViewModel.cs" />
+    <Compile Include="ViewModels\LandingPageViewModel.cs" />
+    <Compile Include="ViewModels\PostLoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -114,6 +116,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="static\css\boards-page.css" />
+    <Content Include="static\css\landing-page.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="static\css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -160,6 +165,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="static\img\ajax-loader.gif" />
+    <Content Include="static\img\landingpage.jpg" />
     <Content Include="static\img\loader.gif" />
     <Content Include="static\img\loading.gif" />
     <Content Include="static\img\logo.png" />
@@ -167,8 +173,9 @@
     <Content Include="static\js\canvas-page.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="static\js\jquery.transparent.js" />
     <Content Include="static\js\landing-page.js" />
+    <Content Include="static\js\jquery.transparent.js" />
+    <Content Include="static\js\boards-page.js" />
     <Content Include="static\js\jquery\jquery-1.7.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -203,7 +210,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Landing\Boards.cshtml" />
+    <Content Include="Views\Home\Boards.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DreamBoards.DataAccess\DreamBoards.DataAccess.csproj">
@@ -231,7 +238,7 @@
     <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\CanvasPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UGC\board_images\" />

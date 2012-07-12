@@ -1,0 +1,5 @@
+﻿
+
+#landing-page .container { text-align: center; }
+#landing-page .border { border: dashed 4px #C60050; background-image: url("../../static/img/landingpage.jpg");background-repeat: no-repeat; }
+#landing-page .install-app { display: inline-block;width: 800px;height: 600px; }

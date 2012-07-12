@@ -8,6 +8,14 @@
 
 <div class="container">
 	
+	<div class="install-app border"></div>
 	
+	<script language="javascript" type="text/javascript">
+		$(function() {
+			$('.install-app').click(function() {
+				window.top.location.href = "@Model.SignInUrl";
+			});
+		});
+	</script>
 
 </div>

@@ -70,8 +70,9 @@ namespace DreamBoards.Web.Controllers
 				if (viewModel.User != null)
 				{
 					var board = _boardsRepository.GetBoard(boardId);
-					if (board.UserId == viewModel.User.Id)
+					if (board != null)
 					{
+						viewModel.IsOwner = (board.UserId == viewModel.User.Id);
 						viewModel.Board = board;
 						viewModel.BoardItems = _boardItemsRepository.GetBoardItems(board.Id);
 					}

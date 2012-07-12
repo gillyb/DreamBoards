@@ -10,5 +10,6 @@ namespace DreamBoards.Web.ViewModels
 		public List<KeyValuePair<string, int>> Cateogories { get; set; } 
 		public BoardDto Board { get; set; }
 		public List<BoardItemDto> BoardItems { get; set; }
+		public bool IsOwner { get; set; }
 	}
 }

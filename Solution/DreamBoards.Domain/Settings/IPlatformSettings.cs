@@ -13,14 +13,14 @@
 
 	public class PlatformSettings : IPlatformSettings
 	{
-		//public string PlatformApiBaseUrl { get { return "http://shavrirps.shopyourway.com:88"; } }
-		//public string PlatformSecureApiBaseUrl { get { return "http://shavrirps.shopyourway.com:88"; } }
-		//public string PlatformPagesBaseUrl { get { return "//ohio.local/app/"; } }
-		//public string PlatformHomePage { get { return "http://ohio.local"; } }
-
-		public string PlatformApiBaseUrl { get { return "http://ohio.platform:88"; } }
-		public string PlatformSecureApiBaseUrl { get { return "http://ohio.platform:88"; } }
+		public string PlatformApiBaseUrl { get { return "http://shavrirps.shopyourway.com:88"; } }
+		public string PlatformSecureApiBaseUrl { get { return "http://shavrirps.shopyourway.com:88"; } }
 		public string PlatformPagesBaseUrl { get { return "//ohio.local/app/"; } }
 		public string PlatformHomePage { get { return "http://ohio.local"; } }
+
+		//public string PlatformApiBaseUrl { get { return "http://ohio.platform:88"; } }
+		//public string PlatformSecureApiBaseUrl { get { return "http://ohio.platform:88"; } }
+		//public string PlatformPagesBaseUrl { get { return "//ohio.local/app/"; } }
+		//public string PlatformHomePage { get { return "http://ohio.local"; } }
 	}
 }

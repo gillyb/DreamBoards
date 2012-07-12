@@ -17,7 +17,11 @@
 .thumbnail-container { border: solid 1px grey;padding: 0px;display: inline-block;font-size: 0;margin-right: 10px;margin-bottom: 10px;}
 .thumbnail { width: 90px;height: 90px; }
 
-
+/* basic details form */
+.basic-details { padding: 5px; }
+.basic-details .label { width: 120px;font-weight: bold; }
+.basic-details .input { width: 525px;padding: 2px;font-size: 14px; }
+.basic-details .input input, .basic-details .input textarea { width: 525px;border: solid 1px grey; }
 
 
 .ui-draggable-dragging { opacity: 0.6; }

@@ -4,6 +4,27 @@ $(function() {
 	$('.action-link.save').click(function() {
 		var id = $('.canvas').data('board-id');
 
+		if (typeof id == 'undefined') {
+			if ($('#board-name').val().trim() == '') {
+				alert('You must enter a name for the board!');
+				return;
+			}
+			$.ajax({
+				url: '/-/canvas/new',
+				type: 'POST',
+				async: false,
+				data: JSON.stringify({ name: $('#board-name').val(), description: $('#board-description').val() }),
+				contentType: 'application/json; charset=utf-8',
+				success: function(boardId) {
+					id = boardId;
+					$('.canvas').data('board-id', id);
+				},
+				error: function() {
+					debugger;
+				}
+			});
+		}
+
 		$.ajax({
 			url: '/-/canvas/save',
 			type: 'POST',

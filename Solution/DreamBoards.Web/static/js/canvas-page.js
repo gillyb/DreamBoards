@@ -1,5 +1,10 @@
 
 $(function() {
+
+	var editMode = function() {
+		return $('.canvas').data('edit-only');
+	};
+
 	// bind 'select category' drop down to api
 	$('#category-dropdown').change(function() {
 		// TODO: add a nice preloader here...
@@ -31,6 +36,7 @@ $(function() {
 	};
 
 	var makeCanvasDroppable = function() {
+		if (editMode()) return;
 		$('.canvas').droppable({
 			tolerance: 'fit',
 			drop: function(event, ui) {
@@ -51,6 +57,7 @@ $(function() {
 		});
 	};
 	var makeToolboxDraggable = function() {
+		if (editMode()) return;
 		$('.items-container .thumbnail-container').draggable({
 			revert: 'invalid',
 			helper: 'clone'
@@ -70,21 +77,30 @@ $(function() {
 					position: 'absolute',
 					top: item.PosY,
 					left: item.PosX
-				})
-				.draggable({
+				});
+			if (!editMode()) {
+				newItem.draggable({
 					helper: 'original'
-				})
-				.find('.thumbnail')
+				});
+			}
+			newItem.find('.thumbnail')
 				.css({
 					width: item.Width,
 					height: item.Height
 				})
-				.attr('src', item.ImageUrl)
-				.resizable();
+				.attr('src', item.ImageUrl);
+			if (!editMode())
+				newItem.resizable();
 		});
 	};
 
 	makeCanvasDroppable();
 	makeToolboxDraggable();
 	loadExistingCanvasImages();
+
+	if (editMode()) {
+		$('.action-link.save').hide();
+		$('.action-link.save-as-image').hide();
+	}
+
 });

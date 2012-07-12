@@ -1,0 +1,40 @@
+﻿@using DreamBoards.Domain.Tags
+@using DreamBoards.Domain.User
+@using DreamBoards.Domain.Tags
+@using DreamBoards.Domain.User
+@using DreamBoards.Web.Services
+@model DreamBoards.Web.ViewModels.LandingPageViewModel
+@{
+	ViewBag.Title = "Index";
+	ViewBag.BodyId = "boards-page";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+	
+	<div class="header">
+		<span class="logo"></span>
+		<span class="create-board-link float-right">Create a new board</span>
+	</div>
+	
+	<div class="separator-line"></div>
+
+	<div class="popular-boards">
+		
+		<div class="columns">
+			@foreach (var board in Model.PopularBoards)
+			{
+				<div class="pin" data-board-id="@board.Id">
+					<div class="board-image-container">
+						<img class="board" src="@ViewHelperService.GetImageBoardUrl(board.BoardImage)" />
+					</div>
+					<div class="board-title">@board.Title <span class="board-by">BY USER #@board.UserId</span></div>
+					<div class="board-description">@board.Description</div>
+					<div class="board-date">@board.CreatedDate</div>
+				</div>
+			}
+		</div>
+
+	</div>
+
+</div>

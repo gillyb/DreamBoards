@@ -25,8 +25,8 @@ namespace DreamBoards.Web.Controllers
 			_boardItemsRepository = boardItemsRepository;
     	}
 
-		[PatternRoute("/landing")]
-		public ActionResult Landing(int boardId)
+		[PatternRoute("/boards")]
+		public ActionResult Boards(int boardId)
 		{
 			var model = new LandingPageViewModel();
 			var userState = _platformProxy.Get<UserState>("auth/user-state");
@@ -40,6 +40,12 @@ namespace DreamBoards.Web.Controllers
 				.Where(x => !string.IsNullOrEmpty(x.BoardImage)).ToList();
 
 			return View(model);
+		}
+
+		[PatternRoute("/landing")]
+		public ActionResult Landing()
+		{
+			return View();
 		}
     }
 }

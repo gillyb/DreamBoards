@@ -22,7 +22,7 @@ namespace DreamBoards.Domain.Products
 		{
 			var discoverCategoryParams = new[] {
 				new KeyValuePair<string, object>("categoryIds", new[] {categoryId}),
-				new KeyValuePair<string, object>("maxItems", 20)
+				new KeyValuePair<string, object>("maxItems", 50)
 			};
 
 			var productIds = _platformProxy.Get<List<long>>("/products/discover/by-category-ids", discoverCategoryParams);

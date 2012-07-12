@@ -13,7 +13,7 @@
 /* right section */
 .browse-section { background-color: #EDEDED;width: 450px;height: 600px; }
 .category-browser { height: 50px;margin-left: 30px;padding-top: 20px;}
-.items-container { padding-left: 26px; }
+.items-container { padding-left: 20px;overflow-y: scroll;height: 500px; }
 .thumbnail-container { border: solid 1px grey;padding: 0px;display: inline-block;font-size: 0;margin-right: 10px;margin-bottom: 10px;}
 .thumbnail { width: 90px;height: 90px; }
 .product-thumbnail { display: inline-block;margin-right: 10px;margin-bottom: 10px;}

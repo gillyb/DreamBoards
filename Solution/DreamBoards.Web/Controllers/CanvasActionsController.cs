@@ -36,33 +36,38 @@ namespace DreamBoards.Web.Controllers
 
 		[HttpPost]
 		[PatternRoute("/-/canvas/save")]
-		public ActionResult SaveBoard(int boardId, List<BoardItemDto> boardItems)
+		public ActionResult SaveBoard(int boardId, List<BoardItemDto> boardItems, string template)
 		{
+			var boardTemplate = (!string.IsNullOrEmpty(template)) ? template.Replace("url(\"", "").Replace("\")", "") : "";
 			var user = _apiUsersService.GetCurrentUser();
+			
 			var board = _boardsRepository.GetBoard(boardId);
+			board.BoardTemplate = boardTemplate;
+			_boardsRepository.UpdateBoard(board);
 
 			if (board.UserId != user.Id)
 				throw new UnauthorizedAccessException("You can not save changes to a board that doesn't belong to you");
 
 			_boardItemsRepository.SaveBoardItems(boardId, boardItems);
-			_imageService.SaveBoardAsImage(boardItems);
+			_imageService.SaveBoardAsImage(boardItems, board.BoardTemplate);
 
 			return Json("OK");
 		}
 
 		[HttpPost]
 		[PatternRoute("/-/canvas/save-as-image")]
-		public ActionResult SaveBoardAsImage(List<BoardItemDto> boardItems)
+		public ActionResult SaveBoardAsImage(List<BoardItemDto> boardItems, string boardTemplate)
 		{
-			_imageService.SaveBoardAsImage(boardItems);
+			_imageService.SaveBoardAsImage(boardItems, boardTemplate);
 			return Content("OK");
 		}
 
 		[HttpPost]
 		[PatternRoute("/-/canvas/brag")]
-		public ActionResult PublishBoardOnNewsfeed(int boardId, string boardTitle, List<BoardItemDto> boardItems)
+		public ActionResult PublishBoardOnNewsfeed(int boardId, string boardTitle, List<BoardItemDto> boardItems, string template)
 		{
-			_imageService.SaveBoardAsImage(boardItems);
+			var boardTemplate = (!string.IsNullOrEmpty(template)) ? template.Replace("url(\"", "").Replace("\")", "") : "";
+			_imageService.SaveBoardAsImage(boardItems, boardTemplate);
 			var board = _boardsRepository.GetBoard(boardId);
 
 			var user = _apiUsersService.GetCurrentUser();

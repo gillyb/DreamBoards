@@ -169,10 +169,17 @@
     <Content Include="static\img\loader.gif" />
     <Content Include="static\img\loading.gif" />
     <Content Include="static\img\logo.png" />
+    <Content Include="static\img\templates\01.jpg" />
+    <Content Include="static\img\templates\02.jpg" />
+    <Content Include="static\img\templates\03.jpg" />
+    <Content Include="static\img\templates\04.jpg" />
+    <Content Include="static\img\templates\05.jpg" />
+    <Content Include="static\img\templates\06.jpg" />
     <Content Include="static\js\canvas-actions.js" />
     <Content Include="static\js\canvas-page.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="static\js\common.js" />
     <Content Include="static\js\landing-page.js" />
     <Content Include="static\js\jquery.transparent.js" />
     <Content Include="static\js\boards-page.js" />

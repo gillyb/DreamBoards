@@ -9,6 +9,7 @@ namespace DreamBoards.DataAccess.DataObjects
 		public string Title { get; set; }
 		public string Description { get; set; }
 		public string BoardImage { get; set; }
+		public string BoardTemplate { get; set; }
 		public DateTime CreatedDate { get; set; }
 	}
 }

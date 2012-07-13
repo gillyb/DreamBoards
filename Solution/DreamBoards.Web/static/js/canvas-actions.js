@@ -15,7 +15,11 @@ $(function() {
 				url: '/-/canvas/new',
 				type: 'POST',
 				async: false,
-				data: JSON.stringify({ name: $('#board-name').val(), description: $('#board-description').val() }),
+				data: JSON.stringify({
+					name: $('#board-name').val(),
+					description: $('#board-description').val(),
+					template: $('.canvas').css('background-image')
+				}),
 				contentType: 'application/json; charset=utf-8',
 				success: function(boardId) {
 					id = boardId;
@@ -32,7 +36,11 @@ $(function() {
 			url: '/-/canvas/save',
 			type: 'POST',
 			dataType: 'json',
-			data: JSON.stringify({ boardId: id, boardItems: getItemsArray(id) }),
+			data: JSON.stringify({
+				boardId: id,
+				boardItems: getItemsArray(id),
+				template: $('.canvas').css('background-image')
+			}),
 			contentType: 'application/json; charset=utf-8',
 			success: function(data) {
 				showSuccessMessage('Your DreamBoard was saved successfully');
@@ -71,17 +79,25 @@ $(function() {
 			data: JSON.stringify({
 				boardId: boardId,
 				boardTitle: $('#board-name').val(),
-				boardItems: getItemsArray(boardId)
+				boardItems: getItemsArray(boardId),
+				template: $('.canvas').css('background-image')
 			}),
 			contentType: 'application/json; charset=utf-8',
 			success: function(data) {
-				showSuccessMessage('DreamBoard was bragged about successfully')
+				showSuccessMessage('DreamBoard was bragged about successfully');
 			},
 			error: function(ex) {
 				showErrorMessage('An error occurred while bragging, please try again shortly...');
 			},
 			complete: hideLoader
 		});
+	});
+
+	$('.template-browse-section .template-container').click(function() {
+		$('.canvas').css('background-image', 'url("' + $(this).find('img').attr('src') + '")');
+	});
+	$('.template-browse-section .template-none').click(function() {
+		$('.canvas').css('background-image', 'none');
 	});
 
 	var getItemsArray = function(boardId) {

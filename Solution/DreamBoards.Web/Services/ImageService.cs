@@ -14,7 +14,7 @@ namespace DreamBoards.Web.Services
 		string BoardImagesLibrary { get; }
 
 		string MakeImageTransparent(string imageUrl);
-		void SaveBoardAsImage(List<BoardItemDto> boardItems);
+		void SaveBoardAsImage(List<BoardItemDto> boardItems, string boardTemplate);
 	}
 
 	public class ImageService : IImageService
@@ -67,13 +67,22 @@ namespace DreamBoards.Web.Services
 			       Math.Abs(pixelColor.B - bgColor.B);
 		}
 
-		public void SaveBoardAsImage(List<BoardItemDto> boardItems)
+		public void SaveBoardAsImage(List<BoardItemDto> boardItems, string boardTemplate)
 		{
 			using (var finalImage = new Bitmap(656, 600))
 			{
 				using (var finalGraphics = Graphics.FromImage(finalImage))
 				{
-					finalGraphics.Clear(Color.White);
+					if (!string.IsNullOrEmpty(boardTemplate))
+					{
+						var image = GetImageFromUrl(boardTemplate);
+						finalGraphics.DrawImage(image, 0, 0);
+					}
+					else
+					{
+						finalGraphics.Clear(Color.White);
+					}
+
 					foreach (var item in boardItems)
 					{
 						var itemImage = GetImageFromUrl(item.ImageUrl);

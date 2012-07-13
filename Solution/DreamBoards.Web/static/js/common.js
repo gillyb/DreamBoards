@@ -5,7 +5,7 @@ function showSuccessMessage(message) {
 		$('.success-message').fadeOut('slow', function() {
 			$(this).removeClass('success-message');
 		});
-	}, 4000);
+	}, 2000);
 }
 
 function showErrorMessage(message) {
@@ -14,5 +14,5 @@ function showErrorMessage(message) {
 		$('.error-message').fadeOut('slow', function() {
 			$(this).removeClass('error-message');
 		});
-	}, 4000);
+	}, 2000);
 }

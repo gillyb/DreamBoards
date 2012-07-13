@@ -81,6 +81,9 @@ $(function() {
 		if (typeof boardItems == 'undefined') return;
 		if (boardItems.length == 0) return;
 
+		if (boardTemplate.trim() != '')
+			$('.canvas').css('background-image', 'url("' + boardTemplate + '")');
+		
 		$('.teaser', '.canvas').remove();
 		$(boardItems).each(function(index, item) {
 			var newItem = wrapItemForToolBox(item.ProductId, item.ImageUrl);

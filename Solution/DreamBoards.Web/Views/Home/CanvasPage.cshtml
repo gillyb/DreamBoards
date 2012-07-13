@@ -71,9 +71,38 @@
 		</div>
 
 	</div>
+	@if (!Model.ReadOnly)
+	{
+		<div class="template-browse-section round-corners">
+			SELECT A TEMPLATE : <span class="template-none">NONE</span>
+			<div class="template-viewport">
+				<div class="templates-list">
+					<div class="template-container">
+						<img class="template" src="../../static/img/templates/05.jpg">
+					</div>
+					<div class="template-container">
+						<img class="template" src="../../static/img/templates/02.jpg">
+					</div>
+					<div class="template-container">
+						<img class="template" src="../../static/img/templates/01.jpg">
+					</div>
+					<div class="template-container">
+						<img class="template" src="../../static/img/templates/03.jpg">
+					</div>
+					<div class="template-container">
+						<img class="template" src="../../static/img/templates/04.jpg">
+					</div>
+					<div class="template-container">
+						<img class="template" src="../../static/img/templates/06.jpg">
+					</div>
+				</div>
+			</div>
+		</div>
+	}
 </div>
 
 <script language="javascript" type="text/javascript">
+	@(Model.Board != null ? Html.Raw("var boardTemplate = '" + @Model.Board.BoardTemplate + "';") : Html.Raw(""))
 	var boardItems = [];
 </script>
 @foreach (var boardItem in Model.BoardItems)

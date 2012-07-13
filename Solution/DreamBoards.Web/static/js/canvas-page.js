@@ -83,7 +83,7 @@ $(function() {
 
 		if (boardTemplate.trim() != '')
 			$('.canvas').css('background-image', 'url("' + boardTemplate + '")');
-		
+
 		$('.teaser', '.canvas').remove();
 		$(boardItems).each(function(index, item) {
 			var newItem = wrapItemForToolBox(item.ProductId, item.ImageUrl);
@@ -106,7 +106,7 @@ $(function() {
 				})
 				.attr('src', item.ImageUrl);
 			if (!readOnlyMode())
-				newItem.resizable();
+				newItem.find('img').resizable();
 		});
 	};
 
@@ -137,7 +137,7 @@ $(function() {
 				});
 			},
 			error: function(ex) {
-				debugger;
+				showErrorMessage('Error while loading products from DreamBoard');
 			}
 		});
 	};
@@ -175,7 +175,7 @@ $(function() {
 		$('.action-button.bring-forward').click(function() {
 			$('.canvas .thumbnail-container.selected')
 				.remove()
-				.insertAfter($('.canvas .thumbnail-container'))
+				.insertAfter($('.canvas .thumbnail-container:last-child'))
 				.draggable({ helper: 'original' });
 		});
 		$('.action-button.delete').click(function() {

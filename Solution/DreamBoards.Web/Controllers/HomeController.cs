@@ -86,27 +86,26 @@ namespace DreamBoards.Web.Controllers
 
     	private static List<KeyValuePair<string, int>> GetCategoryList()
     	{
+			// Prod Categories
 			return new List<KeyValuePair<string, int>> {
-			    new KeyValuePair<string, int>("Dresses", 1702),
-			    new KeyValuePair<string, int>("Swimwear", 1250),
-			    new KeyValuePair<string, int>("Tops", 1283),
+			    new KeyValuePair<string, int>("Sunglasses", 1702),
+			    new KeyValuePair<string, int>("Dresses", 1250),
+			    new KeyValuePair<string, int>("Jackets & Blazers", 1283),
 			    new KeyValuePair<string, int>("Jeans", 1310),
 			    new KeyValuePair<string, int>("Skirts", 1405),
-			    new KeyValuePair<string, int>("Necklaces", 1478),
-			    new KeyValuePair<string, int>("Earrings", 1352),
-			    new KeyValuePair<string, int>("Jackets", 11565),
-			    new KeyValuePair<string, int>("Various", 11762),
-			    new KeyValuePair<string, int>("Sunglasses", 11682),
-				new KeyValuePair<string, int>("Sunglasses", 1294),
-				new KeyValuePair<string, int>("Sunglasses", 1296),
-				new KeyValuePair<string, int>("Sunglasses", 1299),
-				new KeyValuePair<string, int>("Sunglasses", 1308),
-				new KeyValuePair<string, int>("Sunglasses", 1309),
-				new KeyValuePair<string, int>("Sunglasses", 1316),
-				new KeyValuePair<string, int>("Sunglasses", 1350),
-				new KeyValuePair<string, int>("Sunglasses", 1352),
-				new KeyValuePair<string, int>("Sunglasses", 1373),
-				new KeyValuePair<string, int>("Sunglasses", 1391) };
+			    new KeyValuePair<string, int>("Swimsuits", 1478),
+			    new KeyValuePair<string, int>("Tops", 1352),
+			    new KeyValuePair<string, int>("Necklaces", 11565),
+			    new KeyValuePair<string, int>("Rings", 11762),
+			    new KeyValuePair<string, int>("Sweaters", 1294),
+				new KeyValuePair<string, int>("Jewelery", 1527),
+				new KeyValuePair<string, int>("Intimates", 1424),
+				new KeyValuePair<string, int>("Pajamas", 1435),
+				new KeyValuePair<string, int>("Gold Jewelery", 1528),
+				new KeyValuePair<string, int>("T-Shirts", 1316),
+				new KeyValuePair<string, int>("Handbags", 1508),
+				new KeyValuePair<string, int>("Silver Jewelery", 1544),
+				new KeyValuePair<string, int>("Jewelery", 1512) };
 
 			// Shavrir Categories
 			//return new List<KeyValuePair<string, int>> {

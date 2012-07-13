@@ -111,7 +111,7 @@
 		boardItems.push({
 			ItemId: @boardItem.ItemId,
 			BoardId: @boardItem.BoardId,
-			ProductId: @boardItem.ProductId,
+			ProductId: @(boardItem.ProductId != null ? boardItem.ProductId : 0),
 			CatalogId: @boardItem.CatalogId,
 			ImageUrl: '@boardItem.ImageUrl',
 			PosX: @boardItem.PosX,

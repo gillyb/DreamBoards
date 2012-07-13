@@ -91,6 +91,8 @@ namespace DreamBoards.Web.Controllers
 			    new KeyValuePair<string, int>("Sunglasses", 1702),
 			    new KeyValuePair<string, int>("Dresses", 1250),
 			    new KeyValuePair<string, int>("Jackets & Blazers", 1283),
+				new KeyValuePair<string, int>("Belts", 1209),
+				new KeyValuePair<string, int>("Scarves & Wraps", 1209),
 			    new KeyValuePair<string, int>("Jeans", 1310),
 			    new KeyValuePair<string, int>("Skirts", 1405),
 			    new KeyValuePair<string, int>("Swimsuits", 1478),
@@ -105,7 +107,12 @@ namespace DreamBoards.Web.Controllers
 				new KeyValuePair<string, int>("T-Shirts", 1316),
 				new KeyValuePair<string, int>("Handbags", 1508),
 				new KeyValuePair<string, int>("Silver Jewelery", 1544),
-				new KeyValuePair<string, int>("Jewelery", 1512) };
+				new KeyValuePair<string, int>("Jewelery", 1512),
+				new KeyValuePair<string, int>("Shoes", 1643),
+				new KeyValuePair<string, int>("Sandals", 1637),
+				new KeyValuePair<string, int>("Boots", 1627),
+				new KeyValuePair<string, int>("Evening Shoes", 1627),
+				new KeyValuePair<string, int>("Fashion Earrings", 11536) };
 
 			// Shavrir Categories
 			//return new List<KeyValuePair<string, int>> {

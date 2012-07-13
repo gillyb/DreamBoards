@@ -19,7 +19,7 @@ $(function() {
 	});
 
 	var updateItemsContainer = function(dropDown) {
-		if (readOnlyMode()) return;
+		if (readOnlyMode() || $('.canvas').length == 0) return;
 		$.ajax({
 			url: '/-/platform/get-products-for-category',
 			type: 'POST',

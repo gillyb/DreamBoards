@@ -8,6 +8,7 @@ $(function() {
 		if (typeof id == 'undefined' || id == 0) {
 			if ($('#board-name').val().trim() == '') {
 				alert('You must enter a name for the board!');
+				hideLoader();
 				return;
 			}
 			$.ajax({
@@ -22,7 +23,7 @@ $(function() {
 				},
 				error: function() {
 					hideLoader();
-					debugger;
+					showErrorMessage('An error occurred while saving, please try again...');
 				}
 			});
 		}
@@ -34,10 +35,10 @@ $(function() {
 			data: JSON.stringify({ boardId: id, boardItems: getItemsArray(id) }),
 			contentType: 'application/json; charset=utf-8',
 			success: function(data) {
-				//debugger;
+				showSuccessMessage('Your DreamBoard was saved successfully');
 			},
 			error: function(xhr) {
-				debugger;
+				showErrorMessage('An error occurred while saving, please try again shortly...');
 			},
 			complete: hideLoader
 		});
@@ -55,7 +56,7 @@ $(function() {
 				//debugger;
 			},
 			error: function() {
-				debugger;
+				showErrorMessage('An error occurred while trying to save the DreamBoard');
 			},
 			complete: hideLoader
 		});
@@ -74,11 +75,10 @@ $(function() {
 			}),
 			contentType: 'application/json; charset=utf-8',
 			success: function(data) {
-				//debugger;
+				showSuccessMessage('DreamBoard was bragged about successfully')
 			},
 			error: function(ex) {
-				// TODO: display some nice error message
-				debugger;
+				showErrorMessage('An error occurred while bragging, please try again shortly...');
 			},
 			complete: hideLoader
 		});

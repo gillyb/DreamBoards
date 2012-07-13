@@ -25,5 +25,8 @@ select { border: solid 1px grey;}
 .thumbnail-container .loader { background-image: url(../../static/img/ajax-loader.gif);position: absolute;bottom: 50px;right: 50px;width: 64px;height: 64px;display: inline-block; }
 
 .canvas.loading { opacity: 0.5; }
+.user-message { color: black;position: absolute;top:10px;left: 430px;display: inline-block;padding: 5px 20px; }
+.user-message.success-message { background-color: #00CC33;}
+.user-message.error-message { background-color: red; }
 
 .header .loader { display: inline-block;width: 55px;height: 55px;background-image: url("../../static/img/ajax-loader.gif"); }

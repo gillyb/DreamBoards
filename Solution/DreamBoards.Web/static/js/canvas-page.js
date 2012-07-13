@@ -155,12 +155,40 @@ $(function() {
 		});
 	};
 
+	var makeCanvasImagesSelectable = function() {
+		if (readOnlyMode()) return;
+		$('.canvas .thumbnail-container').live('click', function() {
+			$('.canvas .thumbnail-container').removeClass('selected');
+			$(this).addClass('selected');
+		});
+		$(document).click(function(e) {
+			if ($(e.target).parents('.canvas').length == 0)
+				$('.canvas .thumbnail-container').removeClass('selected');
+		});
+	};
+
+	var enableCanvasActionButtons = function() {
+		if (readOnlyMode()) return;
+		$('.action-button.bring-forward').click(function() {
+			$('.canvas .thumbnail-container.selected')
+				.remove()
+				.insertAfter($('.canvas .thumbnail-container'))
+				.draggable({ helper: 'original' });
+		});
+		$('.action-button.delete').click(function() {
+			$('.canvas .thumbnail-container.selected').remove();
+		});
+	};
+
 	makeCanvasDroppable();
 	makeToolboxDraggable();
 	loadExistingCanvasImages();
 	loadProductsFromBoard();
 	updateItemsContainer($('#category-dropdown'));
 	makeCanvasImagesHoverable();
+
+	makeCanvasImagesSelectable();
+	enableCanvasActionButtons();
 
 	if (readOnlyMode()) {
 		$('.action-buttons').hide();

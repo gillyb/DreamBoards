@@ -10,6 +10,11 @@
 .canvas { height: 600px;border:dashed 2px #C60050;position: relative;background-color: white;overflow: hidden;}
 .canvas .teaser { color: #AAAAAA;font-size: 30px;margin-top: 200px;text-align: center; }
 .canvas .thumbnail-container { border: none;}
+.canvas .thumbnail-container.selected { border: solid 1px grey;}
+.canvas .canvas-buttons { z-index: 1000;position: absolute;right: 5px;top: 5px; }
+.canvas .canvas-buttons .action-button { opacity: 0.5;background-color: #b6b6b6;border: solid 1px grey;color: black;cursor: pointer;font-size: 14px;height: 20px;padding-top: 2px;text-align: center;width: 140px;margin-bottom: 5px;}
+.canvas:hover .canvas-buttons .action-button { opacity: 0.8;}
+
 
 /* right section */
 .browse-section { background-color: #EDEDED;width: 450px;height: 600px; }

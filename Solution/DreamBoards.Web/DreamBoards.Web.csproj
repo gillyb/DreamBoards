@@ -238,9 +238,6 @@
     <Content Include="Views\Home\RegularCanvas.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Tag\TagCanvas.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Login\InstallApp.cshtml" />
   </ItemGroup>
   <ItemGroup>

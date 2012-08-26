@@ -16,20 +16,16 @@ namespace DreamBoards.Web.Controllers
     public class HomeController : Controller
     {
 		private readonly IPlatformProxy _platformProxy;
-    	private readonly IApplicationSettings _applicationSettings;
     	private readonly IPlatformSettings _platformSettings;
-    	private readonly IApiProductsService _apiProductsService;
     	private readonly IImageService _imageService;
     	private readonly IBoardsRepository _boardsRepository;
     	private readonly IBoardItemsRepository _boardItemsRepository;
 
-    	public HomeController(IPlatformProxy platformProxy, IApplicationSettings applicationSettings, IPlatformSettings platformSettings, IApiProductsService apiProductsService, IImageService imageService, IBoardsRepository boardsRepository, IBoardItemsRepository boardItemsRepository)
+    	public HomeController(IPlatformProxy platformProxy, IPlatformSettings platformSettings, IImageService imageService, IBoardsRepository boardsRepository, IBoardItemsRepository boardItemsRepository)
     	{
     		_platformProxy = platformProxy;
-			_applicationSettings = applicationSettings;
-			_platformSettings = platformSettings;
-			_apiProductsService = apiProductsService;
-			_imageService = imageService;
+    		_platformSettings = platformSettings;
+    		_imageService = imageService;
 			_boardsRepository = boardsRepository;
 			_boardItemsRepository = boardItemsRepository;
     	}

@@ -14,7 +14,6 @@ namespace DreamBoards.Web.Controllers
 		private readonly IPlatformProxy _platformProxy;
 		private readonly IPlatformRoutes _platformRoutes;
 		private readonly IApplicationSettings _applicationSettings;
-		private readonly IPlatformSettings _VariableName;
 		private readonly IAppWallServices _appWallServices;
 		private readonly IPlatformSettings _platformSettings;
 

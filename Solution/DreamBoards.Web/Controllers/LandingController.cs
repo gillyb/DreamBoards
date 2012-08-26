@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using CommonGround.MvcInvocation;
 using DreamBoards.DataAccess.Repositories;
-using DreamBoards.Domain.PlatformApiServices;
 using DreamBoards.Domain.Settings;
 using DreamBoards.Domain.User;
 using DreamBoards.Web.ViewModels;
@@ -14,18 +13,14 @@ namespace DreamBoards.Web.Controllers
 	public class LandingController : ControllerBase
     {
     	private readonly IPlatformProxy _platformProxy;
-		private readonly IPlatformRoutes _platformRoutes;
 		private readonly IBoardsRepository _boardsRepository;
-		private readonly IBoardItemsRepository _boardItemsRepository;
 		private readonly IPlatformSettings _platformSettings;
 		private readonly IApplicationSettings _applicationSettings;
 
-		public LandingController(IPlatformProxy platformProxy,IPlatformRoutes platformRoutes, IBoardsRepository boardsRepository, IBoardItemsRepository boardItemsRepository, IPlatformSettings platformSettings, IApplicationSettings applicationSettings)
+		public LandingController(IPlatformProxy platformProxy, IBoardsRepository boardsRepository, IPlatformSettings platformSettings, IApplicationSettings applicationSettings)
     	{
     		_platformProxy = platformProxy;
-    		_platformRoutes = platformRoutes;
 			_boardsRepository = boardsRepository;
-			_boardItemsRepository = boardItemsRepository;
 			_platformSettings = platformSettings;
 			_applicationSettings = applicationSettings;
     	}

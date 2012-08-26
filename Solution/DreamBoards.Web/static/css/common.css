@@ -29,4 +29,4 @@ select { border: solid 1px grey;}
 .user-message.success-message { background-color: #00CC33;}
 .user-message.error-message { background-color: red; }
 
-.header .loader { display: inline-block;width: 55px;height: 55px;background-image: url("../../static/img/ajax-loader.gif"); }
+.header .loader, .browse-section .loader { display: inline-block;width: 55px;height: 55px;background-image: url("../../static/img/ajax-loader.gif"); }

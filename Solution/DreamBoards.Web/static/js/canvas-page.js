@@ -20,6 +20,7 @@ $(function() {
 
 	var updateItemsContainer = function(dropDown) {
 		if (readOnlyMode() || $('.canvas').length == 0) return;
+		//showLoader();
 		$.ajax({
 			url: '/-/platform/get-products-for-category',
 			type: 'POST',
@@ -181,6 +182,11 @@ $(function() {
 		$('.action-button.delete').click(function() {
 			$('.canvas .thumbnail-container.selected').remove();
 		});
+	};
+
+	var showItemsLoader = function() {
+		$('#category-dropdown').attr('disabled', 'disabled');
+		
 	};
 
 	makeCanvasDroppable();

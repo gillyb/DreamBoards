@@ -120,7 +120,7 @@ namespace DreamBoards.Web.Services
 			catch { }
 			// ReSharper restore EmptyGeneralCatchClause
 
-			return null;
+			return new Bitmap(1,1);
 		}
 	}
 }

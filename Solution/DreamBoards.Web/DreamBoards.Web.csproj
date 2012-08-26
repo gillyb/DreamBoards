@@ -165,6 +165,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="static\img\ajax-loader.gif" />
+    <Content Include="static\img\appIcon.png" />
+    <Content Include="static\img\appIcon_color.png" />
     <Content Include="static\img\landingpage.jpg" />
     <Content Include="static\img\loader.gif" />
     <Content Include="static\img\loading.gif" />

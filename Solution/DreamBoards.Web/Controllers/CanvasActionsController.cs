@@ -38,7 +38,7 @@ namespace DreamBoards.Web.Controllers
 		[PatternRoute("/-/canvas/save")]
 		public ActionResult SaveBoard(int boardId, List<BoardItemDto> boardItems, string template)
 		{
-			var boardTemplate = (!string.IsNullOrEmpty(template)) ? template.Replace("url(\"", "").Replace("\")", "") : "";
+			var boardTemplate = (!string.IsNullOrEmpty(template)) ? template.Replace("url(", "").Replace(")", "").Replace("\"","") : "";
 			var user = _apiUsersService.GetCurrentUser();
 			
 			var board = _boardsRepository.GetBoard(boardId);
@@ -66,7 +66,7 @@ namespace DreamBoards.Web.Controllers
 		[PatternRoute("/-/canvas/brag")]
 		public ActionResult PublishBoardOnNewsfeed(int boardId, string boardTitle, List<BoardItemDto> boardItems, string template)
 		{
-			var boardTemplate = (!string.IsNullOrEmpty(template)) ? template.Replace("url(\"", "").Replace("\")", "") : "";
+			var boardTemplate = (!string.IsNullOrEmpty(template)) ? template.Replace("url(", "").Replace(")", "").Replace("\"","") : "";
 			_imageService.SaveBoardAsImage(boardItems, boardTemplate);
 			var board = _boardsRepository.GetBoard(boardId);
 
@@ -74,7 +74,7 @@ namespace DreamBoards.Web.Controllers
 			_apiNewsfeedService.PublishStoryOnWall(user.Id, boardTitle,
 				"Check out this cool DreamBoard, created by " + user.Name,
 				string.Format("{0}/{1}/{2}", ConfigurationManager.AppSettings["DreamBoardsDomain"], ConfigurationManager.AppSettings["BoardImagesLibrary"], board.BoardImage),
-				string.Format("{0}{1}/r?boardId={2}", _platformSettings.PlatformPagesBaseUrl, _applicationSettings.AppId, boardId));
+				string.Format("{0}/{1}/r?boardId={2}", _platformSettings.PlatformPagesBaseUrl, _applicationSettings.AppId, boardId));
 
 			return Content("OK");
 		}

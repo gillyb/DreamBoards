@@ -58,6 +58,7 @@
 							<option value="@category.Value">@category.Key</option>
 						}
 					</select>
+					<span class="loader invisible"></span>
 				}
 				else
 				{
@@ -72,7 +73,7 @@
 
 	</div>
 	@if (!Model.ReadOnly)
-	{
+ {
 		<div class="template-browse-section round-corners">
 			SELECT A TEMPLATE : <span class="template-none">NONE</span>
 			<div class="template-viewport">
@@ -98,7 +99,7 @@
 				</div>
 			</div>
 		</div>
-	}
+ }
 </div>
 
 <script language="javascript" type="text/javascript">

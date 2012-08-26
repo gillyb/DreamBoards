@@ -19,6 +19,7 @@
 /* right section */
 .browse-section { background-color: #EDEDED;width: 450px;height: 600px; }
 .category-browser { height: 50px;margin-left: 30px;padding-top: 20px;}
+#canvas-page .category-browser { height: 75px;padding-top: 0;}
 .items-container { padding-left: 15px;overflow-y: scroll;height: 500px; }
 .items-container .product-thumbnail { padding: 2px;cursor: pointer; }
 .items-container .product-thumbnail.selected { border: dashed 2px #C60050;padding: 0; }

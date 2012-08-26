@@ -30,8 +30,6 @@ namespace DreamBoards.Web.Controllers
 		[PatternRoute("/post-login")]
 		public ActionResult PostLogin()
 		{
-			InstallAppForUser();
-
 			var model = new PostLoginViewModel {
 				RegularCanvasUrl = string.Format("http:{0}/{1}/r", _platformSettings.PlatformPagesBaseUrl, _applicationSettings.AppId)
 			};
